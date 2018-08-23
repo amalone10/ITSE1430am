@@ -10,6 +10,8 @@ namespace HelloWorld
     {
         static void Main( string[] args )
         {
+            string name = "Bob";
+            double y = 4.65;
             int x = 10;
             Console.WriteLine("Hello World");
         }
