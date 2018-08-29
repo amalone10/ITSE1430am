@@ -10,8 +10,11 @@ namespace Section1
     {
         static void Main( string[] args )
         {
-            //DisplayMenu();
-            PlayWithStrings();
+            do
+                DisplayMenu();
+            while (true);
+
+            //PlayWithStrings();
         }
 
         private static void PlayWithStrings()
@@ -75,25 +78,39 @@ namespace Section1
 
         }
 
-        private static void DisplayMenu()
+        private static bool DisplayMenu()
         {
-            Console.WriteLine("A)dd Movie");
-            Console.WriteLine("E)dit Movie");
-            Console.WriteLine("D)elete Movie");
-            Console.WriteLine("V)iew Movies");
-            Console.WriteLine("Q)uit");
-
-            string input = Console.ReadLine();
-            switch (input [0])
+            while (true)
             {
-                case 'A': AddMovie(); break;
-                case 'E': EditMovie(); break;
-                case 'D': DeleteMovie(); break;
-                case 'V': ViewMovie(); break;
-                case 'Q': ; break;
+                Console.WriteLine("A)dd Movie");
+                Console.WriteLine("E)dit Movie");
+                Console.WriteLine("D)elete Movie");
+                Console.WriteLine("V)iew Movies");
+                Console.WriteLine("Q)uit");
 
-                default: Console.WriteLine("Please enter a valid value."); break;
-            }
+                string input = Console.ReadLine();
+                switch (input[0])
+                {
+                    case 'a':
+                    case 'A': AddMovie(); return true;
+
+                    case 'e':
+                    case 'E': EditMovie(); return true;
+
+                    case 'd':
+                    case 'D': DeleteMovie(); return true;
+
+                    case 'v':
+                    case 'V': ViewMovie(); return true;
+
+                    case 'q':
+                    case 'Q': return false;
+
+                    default:
+                    Console.WriteLine("Please enter a valid value.");
+                    break;
+                };
+            };
         }
 
         private static void AddMovie()
