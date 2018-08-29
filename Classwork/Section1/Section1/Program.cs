@@ -22,7 +22,7 @@ namespace Section1
             //int hours;
             //bool result = Int32.TryParse(hoursString, out int hours);
 
-            //convert anything ToString
+            //ToString
             //hoursString = hours.ToString();
             //4.75.ToString();
             //457.ToString();
@@ -30,15 +30,48 @@ namespace Section1
 
             string message = "Hello\tWorld";
             string filePath = "C:\\Temp\\Test";
-
-            //verbatim string
+            //Verbatim string
             filePath = @"C:\Temp\Test";
 
-            //contact
+            //Concat
             string firstName = "Bob";
             string lastName = "Smitn";
             string name = firstName + " " + lastName;
-            ;
+            //String formatting
+            //Strings are immutable - this produces a new string
+            //name = "hello" + name;
+            Console.WriteLine("Hello" + name); //Approach 1
+            Console.WriteLine("Hello {0} {1}", firstName, lastName); //Approach 2
+            string str = String.Format("Hello {0} {1}", firstName, lastName); //Approach 3
+            Console.WriteLine(str);
+            //Approach 4 (Interpreted String) **Best**
+            Console.WriteLine($"Hello {firstName} {lastName}");
+
+            string missing = null;
+            string empty = ""; //same as empty2
+            string empty2 = String.Empty;
+            //Checking for empty strings
+            //if (firstName != null && firstName != "")
+            if (!String.IsNullOrEmpty(firstName)) // **Best**
+                Console.WriteLine(firstName);
+
+            //Other stuff
+            string upperName = firstName.ToUpper();
+            string lowerName = firstName.ToLower();
+
+            //Comparison
+            bool areEqual = firstName == lastName;
+            areEqual = firstName.ToLower() == lastName.ToLower();
+            areEqual = String.Compare(firstName, lastName, true) == 0;
+
+            bool startsWithA = firstName.StartsWith("A");
+            bool endsWithA = firstName.EndsWith("A");
+            bool hasA = firstName.IndexOf("A") >= 0;
+            string subset = firstName.Substring(4);
+
+            //Clean up
+            string cleanMe = firstName.Trim(); //TrimStart, TrimEnd
+            string makeLonger = firstName.PadLeft(20); //PadRight
 
         }
 
