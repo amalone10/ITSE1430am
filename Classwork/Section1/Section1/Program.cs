@@ -10,9 +10,11 @@ namespace Section1
     {
         static void Main( string[] args )
         {
+            bool notQuit;
             do
-                DisplayMenu();
-            while (true);
+            {
+                notQuit = DisplayMenu();
+            } while (notQuit);
 
             //PlayWithStrings();
         }
@@ -86,7 +88,7 @@ namespace Section1
                 Console.WriteLine("E)dit Movie");
                 Console.WriteLine("D)elete Movie");
                 Console.WriteLine("V)iew Movies");
-                Console.WriteLine("Q)uit");
+                Console.WriteLine("Q)uit\n");
 
                 string input = Console.ReadLine();
                 switch (input[0])
@@ -107,7 +109,7 @@ namespace Section1
                     case 'Q': return false;
 
                     default:
-                    Console.WriteLine("Please enter a valid value.");
+                    Console.WriteLine("Please enter a valid value.\n\n");
                     break;
                 };
             };
@@ -115,22 +117,22 @@ namespace Section1
 
         private static void AddMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Add movie\n");
         }
 
         private static void EditMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Edit movie\n");
         }
 
         private static void DeleteMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Delete movie\n");
         }
 
         private static void ViewMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("View movie\n");
         }
     }
 }
