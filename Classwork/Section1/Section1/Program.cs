@@ -54,7 +54,7 @@ namespace Section1
             //Approach 4 (Interpreted String) **Best**
             Console.WriteLine($"Hello {firstName} {lastName}");
 
-            string missing = null;
+            string missing = null; //undefined
             string empty = ""; //same as empty2
             string empty2 = String.Empty;
             //Checking for empty strings
@@ -84,8 +84,19 @@ namespace Section1
 
         private static void PlayWithArrays()
         {
-            int count = ReadInt32("How many names? ", 1);
+            int count = ReadInt32("How many names? ", 1); //size of array
 
+            string[] names = new string[count];
+            for (int index = 0; index < count; index++)
+            {
+                Console.WriteLine("Name? ");
+                names[index] = Console.ReadLine();
+            };
+
+            for (int index = 0; index < names.Length; index++)
+            {
+                Console.WriteLine(names[index]);
+            };
         }
 
         private static bool DisplayMenu()
