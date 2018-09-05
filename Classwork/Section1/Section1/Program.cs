@@ -93,9 +93,15 @@ namespace Section1
                 names[index] = Console.ReadLine();
             };
 
-            for (int index = 0; index < names.Length; index++)
+            //for (int index = 0; index < names.Length; index++)
+            foreach (string name in names)
             {
-                Console.WriteLine(names[index]);
+                //read only - not allowed
+                //name = "";
+                string str = name;
+                str = "";
+                //Console.WriteLine(names[index]);
+                Console.WriteLine(name);
             };
         }
 
@@ -170,6 +176,28 @@ namespace Section1
                 Console.WriteLine($"You must enter an integer value >= {minValue}");
             };
 
+        }
+
+        private static string ReadString ( string message)
+        {
+            Console.WriteLine(message);
+            string input = Console.ReadLine();
+
+            return input;
+        }
+
+        private static string ReadString( string message, bool required )
+        {
+            while(true)
+            {
+                Console.WriteLine(message);
+                string input = Console.ReadLine();
+
+                if(!String.IsNullOrEmpty(input) || !required)
+                    return input;
+
+                Console.WriteLine("You must enter a value");
+            };
         }
     }
 }
