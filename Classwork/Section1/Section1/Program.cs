@@ -17,6 +17,8 @@ namespace Section1
             } while (notQuit);
 
             //PlayWithStrings();
+            //PlayWithArrays();
+            //ReadInt32();
         }
 
         private static void PlayWithStrings()
@@ -80,6 +82,12 @@ namespace Section1
 
         }
 
+        private static void PlayWithArrays()
+        {
+            Console.WriteLine("How many names? ");
+
+        }
+
         private static bool DisplayMenu()
         {
             while (true)
@@ -133,6 +141,24 @@ namespace Section1
         private static void ViewMovie()
         {
             Console.WriteLine("View movie\n");
+        }
+
+        private static int ReadInt32(string message, int minValue)
+        {
+            while (true)
+            {
+                Console.WriteLine(message);
+                string input = Console.ReadLine();
+
+                if (Int32.TryParse(input, out int result))
+                {
+                    if (result >= minValue)
+                        return result;
+                };
+
+                Console.WriteLine($"You must enter an integer value >= {minValue}");
+            };
+
         }
     }
 }
