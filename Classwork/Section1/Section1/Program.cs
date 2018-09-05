@@ -84,7 +84,7 @@ namespace Section1
 
         private static void PlayWithArrays()
         {
-            Console.WriteLine("How many names? ");
+            int count = ReadInt32("How many names? ", 1);
 
         }
 
