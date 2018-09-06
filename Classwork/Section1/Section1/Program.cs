@@ -142,25 +142,28 @@ namespace Section1
 
         private static void AddMovie()
         {
-            Console.WriteLine("Add movie\n");
+            //Console.WriteLine("Add movie\n");
+            name = ReadString("Enter a name: ", true);
+            desciption = ReadString("Enter a description: ");
+            runLength = ReadInt32("Enter run length (in minutes): ", 0);
         }
 
         private static void EditMovie()
         {
-            Console.WriteLine("Edit movie\n");
+            //Console.WriteLine("Edit movie\n");
         }
 
         private static void DeleteMovie()
         {
-            Console.WriteLine("Delete movie\n");
+            //Console.WriteLine("Delete movie\n");
         }
 
         private static void ViewMovie()
         {
-            Console.WriteLine("View movie\n");
+            //Console.WriteLine("View movie\n");
         }
 
-        private static int ReadInt32(string message, int minValue)
+        private static int ReadInt32(string message, int minValue )
         {
             while (true)
             {
@@ -178,12 +181,9 @@ namespace Section1
 
         }
 
-        private static string ReadString ( string message)
+        private static string ReadString ( string message )
         {
-            Console.WriteLine(message);
-            string input = Console.ReadLine();
-
-            return input;
+            return ReadString(message, false);
         }
 
         private static string ReadString( string message, bool required )
@@ -199,5 +199,11 @@ namespace Section1
                 Console.WriteLine("You must enter a value");
             };
         }
+
+        //movie
+        static string name;
+        static string desciption;
+        static int runLength;
+        static DateTime releaseDate;
     }
 }
