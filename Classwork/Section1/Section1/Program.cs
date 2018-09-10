@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* ITSE 1430
+   Sample implementation*/
+using System;
 
 namespace Section1
 {
@@ -120,19 +118,28 @@ namespace Section1
                 switch (input[0])
                 {
                     case 'a':
-                    case 'A': AddMovie(); return true;
+                    case 'A':
+                    AddMovie();
+                    return true;
 
                     case 'e':
-                    case 'E': EditMovie(); return true;
+                    case 'E':
+                    EditMovie();
+                    return true;
 
                     case 'd':
-                    case 'D': DeleteMovie(); return true;
+                    case 'D':
+                    DeleteMovie();
+                    return true;
 
                     case 'v':
-                    case 'V': ViewMovie(); return true;
+                    case 'V':
+                    ViewMovie();
+                    return true;
 
                     case 'q':
-                    case 'Q': return false;
+                    case 'Q':
+                    return false;
 
                     default:
                     Console.WriteLine("Please enter a valid value.\n\n");
@@ -151,17 +158,17 @@ namespace Section1
         private static void EditMovie()
         {
             ViewMovie();
-
-            string newName = ReadString("Enter a name (or press ENTER for default): ");
+            //var - type inferencing
+            var newName = ReadString("Enter a name (or press ENTER for default): ");
             if (!string.IsNullOrEmpty(newName))
                 name = newName;
 
-            string newDescription = ReadString("Enter a description: ");
+            var newDescription = ReadString("Enter a description: ");
             if (!string.IsNullOrEmpty(newDescription))
                 description = newDescription;
 
 
-            int newLength = ReadInt32("Enter run length (in minutes): \n", 0);
+            var newLength = ReadInt32("Enter run length (in minutes): \n", 0);
             if (newLength > 0)
                 runLength = newLength;
         }
@@ -170,6 +177,7 @@ namespace Section1
         {
             if (Confirm("Are you sure you want to delete this movie?"))
             {
+                //"Delete" the movie
                 name = null;
             };
         }
@@ -201,7 +209,7 @@ namespace Section1
                 Console.WriteLine("No movies available\n");
                 return;
             };
-                Console.WriteLine(name);
+            Console.WriteLine(name);
 
             if (!string.IsNullOrEmpty(description))
                 Console.WriteLine(description);
@@ -209,14 +217,14 @@ namespace Section1
             Console.WriteLine($"Run length = { runLength} mins");
         }
 
-        private static int ReadInt32(string message, int minValue )
+        private static int ReadInt32( string message, int minValue )
         {
             while (true)
             {
                 Console.WriteLine(message);
-                string input = Console.ReadLine();
+                var input = Console.ReadLine();
 
-                if (Int32.TryParse(input, out int result))
+                if (Int32.TryParse(input, out var result))
                 {
                     if (result >= minValue)
                         return result;
@@ -227,19 +235,19 @@ namespace Section1
 
         }
 
-        private static string ReadString ( string message )
+        private static string ReadString( string message )
         {
             return ReadString(message, false);
         }
 
         private static string ReadString( string message, bool required )
         {
-            while(true)
+            while (true)
             {
                 Console.WriteLine(message);
                 string input = Console.ReadLine();
 
-                if(!String.IsNullOrEmpty(input) || !required)
+                if (!String.IsNullOrEmpty(input) || !required)
                     return input;
 
                 Console.WriteLine("You must enter a value");
