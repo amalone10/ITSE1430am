@@ -93,6 +93,7 @@ namespace Section1
                 names[index] = Console.ReadLine();
             };
 
+            //resize array
             //for (int index = 0; index < names.Length; index++)
             foreach (string name in names)
             {
@@ -109,11 +110,11 @@ namespace Section1
         {
             while (true)
             {
-                Console.WriteLine("A)dd Movie");
+                Console.WriteLine("\nA)dd Movie");
                 Console.WriteLine("E)dit Movie");
                 Console.WriteLine("D)elete Movie");
                 Console.WriteLine("V)iew Movies");
-                Console.WriteLine("Q)uit\n");
+                Console.WriteLine("Q)uit");
 
                 string input = Console.ReadLine();
                 switch (input[0])
@@ -142,25 +143,70 @@ namespace Section1
 
         private static void AddMovie()
         {
-            //Console.WriteLine("Add movie\n");
             name = ReadString("Enter a name: ", true);
-            desciption = ReadString("Enter a description: ");
+            description = ReadString("Enter a description: ");
             runLength = ReadInt32("Enter run length (in minutes): ", 0);
         }
 
         private static void EditMovie()
         {
-            //Console.WriteLine("Edit movie\n");
+            ViewMovie();
+
+            string newName = ReadString("Enter a name (or press ENTER for default): ");
+            if (!string.IsNullOrEmpty(newName))
+                name = newName;
+
+            string newDescription = ReadString("Enter a description: ");
+            if (!string.IsNullOrEmpty(newDescription))
+                description = newDescription;
+
+
+            int newLength = ReadInt32("Enter run length (in minutes): \n", 0);
+            if (newLength > 0)
+                runLength = newLength;
         }
 
         private static void DeleteMovie()
         {
-            //Console.WriteLine("Delete movie\n");
+            if (Confirm("Are you sure you want to delete this movie?"))
+            {
+                name = null;
+            };
+        }
+
+        private static bool Confirm( string message )
+        {
+            Console.WriteLine($"{message} (Y/N)\n");
+
+            do
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                switch (key.KeyChar)
+                {
+                    case 'Y':
+                    case 'y':
+                    return true;
+
+                    case 'N':
+                    case 'n':
+                    return false;
+                }
+            } while (true);
         }
 
         private static void ViewMovie()
         {
-            //Console.WriteLine("View movie\n");
+            if (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("No movies available\n");
+                return;
+            };
+                Console.WriteLine(name);
+
+            if (!string.IsNullOrEmpty(description))
+                Console.WriteLine(description);
+
+            Console.WriteLine($"Run length = { runLength} mins");
         }
 
         private static int ReadInt32(string message, int minValue )
@@ -202,7 +248,7 @@ namespace Section1
 
         //movie
         static string name;
-        static string desciption;
+        static string description;
         static int runLength;
         static DateTime releaseDate;
     }
