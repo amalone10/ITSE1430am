@@ -14,9 +14,63 @@ namespace Section1
                 notQuit = DisplayMenu();
             } while (notQuit);
 
+            //PlayWithObjects();
             //PlayWithStrings();
             //PlayWithArrays();
             //ReadInt32();
+        }
+        private static void PlayWithObjects ()
+        {
+            int hours = 10;
+            Int32 hoursFull = 10;
+            var areEqual = hours == hoursFull;
+
+            var obj1 = "Hello";
+            DisplayObject(obj1);
+        }
+
+        private static void DisplayObject( object value )
+        {
+            if (value == null)
+                return;
+
+            //approach1
+            if (value is string)
+            {
+                var str = (string)value;
+                Console.WriteLine(str);
+            } else
+            {
+                var str = value.ToString();
+                Console.WriteLine(str);
+            };
+
+            //approach2
+            var str2 = value as string;
+            if (str2 != null)
+                Console.WriteLine(str2);
+            else
+                Console.WriteLine(value.ToString());
+
+            //approach3
+            var str3 = value as string;
+            Console.WriteLine((str3 != null) ? str3.ToString() : value.ToString());
+
+            //approach4
+            var str4 = value as string;
+            Console.WriteLine((str4 ?? value).ToString());
+
+            //approach5**
+            //var str5 = value is string;
+            if (value is string str5)
+                Console.WriteLine(str5.ToString());
+            else
+                Console.WriteLine(value.ToString());
+
+            //approach6**
+            var str6 = value as string;
+            Console.WriteLine(str6?.ToString()); //look at approach4
+
         }
 
         private static void PlayWithStrings()
