@@ -70,7 +70,6 @@ namespace Section1
             //approach6**
             var str6 = value as string;
             Console.WriteLine(str6?.ToString()); //look at approach4
-
         }
 
         private static void PlayWithStrings()
