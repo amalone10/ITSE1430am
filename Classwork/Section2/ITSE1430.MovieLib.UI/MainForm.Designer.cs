@@ -30,11 +30,11 @@
         {
             this._mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miMovieAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this._miMovieEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this._miMovieDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this._mainMenu.SuspendLayout();
@@ -55,47 +55,47 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this._miFileExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // exitToolStripMenuItem
+            // _miFileExit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.eExitToolStripMenuItem_Click);
+            this._miFileExit.Name = "_miFileExit";
+            this._miFileExit.Size = new System.Drawing.Size(152, 22);
+            this._miFileExit.Text = "E&xit";
+            this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
             // movieToolStripMenuItem
             // 
             this.movieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.displayToolStripMenuItem});
+            this._miMovieAdd,
+            this._miMovieEdit,
+            this._miMovieDelete});
             this.movieToolStripMenuItem.Name = "movieToolStripMenuItem";
             this.movieToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.movieToolStripMenuItem.Text = "&Movie";
             // 
-            // addToolStripMenuItem
+            // _miMovieAdd
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.addToolStripMenuItem.Text = "Add";
+            this._miMovieAdd.Name = "_miMovieAdd";
+            this._miMovieAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
+            this._miMovieAdd.Size = new System.Drawing.Size(152, 22);
+            this._miMovieAdd.Text = "Add";
             // 
-            // editToolStripMenuItem
+            // _miMovieEdit
             // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.editToolStripMenuItem.Text = "Edit";
+            this._miMovieEdit.Name = "_miMovieEdit";
+            this._miMovieEdit.Size = new System.Drawing.Size(152, 22);
+            this._miMovieEdit.Text = "Edit";
             // 
-            // displayToolStripMenuItem
+            // _miMovieDelete
             // 
-            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.displayToolStripMenuItem.Text = "Delete";
+            this._miMovieDelete.Name = "_miMovieDelete";
+            this._miMovieDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this._miMovieDelete.Size = new System.Drawing.Size(152, 22);
+            this._miMovieDelete.Text = "Delete";
             // 
             // helpToolStripMenuItem
             // 
@@ -109,9 +109,9 @@
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
             this._miHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this._miHelpAbout.Size = new System.Drawing.Size(152, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(126, 22);
             this._miHelpAbout.Text = "About";
-            this._miHelpAbout.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
             // MainForm
             // 
@@ -138,10 +138,10 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem movieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem _miFileExit;
+        private System.Windows.Forms.ToolStripMenuItem _miMovieAdd;
+        private System.Windows.Forms.ToolStripMenuItem _miMovieEdit;
+        private System.Windows.Forms.ToolStripMenuItem _miMovieDelete;
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
     }
 }

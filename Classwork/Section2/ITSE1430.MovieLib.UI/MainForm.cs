@@ -22,14 +22,14 @@ namespace ITSE1430.MovieLib.UI
 
         }
 
-        private void eExitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnFileExit(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             Close();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnHelpAbout(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Better luck next time", "Help", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
