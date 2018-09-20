@@ -17,7 +17,7 @@ namespace PizzaCreator
         {
             while (true)
             {
-                Console.WriteLine("\nN)ew Order");
+                Console.WriteLine("N)ew Order");
                 Console.WriteLine("M)odify Order");
                 Console.WriteLine("D)isplay Order");
                 Console.WriteLine("Q)uit");
@@ -53,12 +53,49 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            size = ReadString("Pizza size:\nS)mall\tM)edium\tL)arge", true);
-            meats = ReadString("What meats would you like added:\nB)acon\tH)am\tP)epperoni\tS)ausage", true);
-            vegetables = ReadString("What vegetables would you like added:\nB)lack olives\tM)ushrooms\tO)nions\tP)eppers", true);
-            sauce = ReadString("What sauce would you like added:\nT)raditional\tG)arlic\tO)regano", true);
-            cheese = ReadString("Extra cheese:\nY)es\tN)o", true);
-            delivery = ReadString("T)ake out\tD)elivery", true);
+            size = ReadString("Pizza size:\nS)mall\nM)edium\nL)arge", true);
+
+
+            meats = ReadString("What meats would you like added:\nB)acon\nH)am\nP)epperoni\nS)ausage. Enter to continue.");
+                if (meats == 'B'.ToString())
+                    price = currentPrice + .75;
+                if (meats == 'H'.ToString())
+                    price = currentPrice + .75;
+                if (meats == 'P'.ToString())
+                    price = currentPrice + .75;
+                if (meats == 'S'.ToString())
+                    price = currentPrice + .75;
+
+            vegetables = ReadString("What vegetables would you like added:\nB)lack olives\nM)ushrooms\nO)nions\nP)eppers");
+                if (meats == 'B'.ToString())
+                    price = currentPrice + .50;
+                if (meats == 'H'.ToString())
+                    price = currentPrice + .50;
+                if (meats == 'P'.ToString())
+                    price = currentPrice + .50;
+                if (meats == 'S'.ToString())
+                    price = currentPrice + .50;
+
+            sauce = ReadString("What sauce would you like added:\nT)raditional\nG)arlic\nO)regano");
+            if (sauce == 'S'.ToString())
+                price = currentPrice;
+            else if (sauce == 'M'.ToString())
+                price = currentPrice + 1;
+            else if (sauce == 'L'.ToString())
+                price = currentPrice + 1;
+
+            cheese = ReadString("Extra cheese:\nY)es\nN)o");
+            if (size == 'Y'.ToString())
+                price = currentPrice + 1.25;
+            else if (size == 'N'.ToString())
+                price = currentPrice;
+
+            delivery = ReadString("T)ake out\nD)elivery");
+            if (size == 'T'.ToString())
+                price = currentPrice;
+            else if (size == 'D'.ToString())
+                price = currentPrice + 2.50;
+
             price = ReadInt32("Current price: ", 0);
         }
 
@@ -92,7 +129,7 @@ namespace PizzaCreator
 
             var newPrice = ReadInt32("Current price: ", 0);
             if (newPrice > 0)
-                price = newPrice;
+                currentPrice = newPrice;
         }
 
         private static void DisplayOrder()
@@ -176,6 +213,15 @@ namespace PizzaCreator
                 Console.WriteLine(message);
                 string input = Console.ReadLine();
 
+                if (size == 'S'.ToString())
+                    currentPrice = 5.00;
+                else if (size == 'M'.ToString())
+                    currentPrice = 6.25;
+                else if (size == 'L'.ToString())
+                    currentPrice = 8.75;
+
+
+
                 if (!String.IsNullOrEmpty(input) || !required)
                     return input;
 
@@ -190,6 +236,7 @@ namespace PizzaCreator
         static string sauce;
         static string cheese;
         static string delivery;
-        static int price;
+        static double price;
+        static double currentPrice;
     }
 }
