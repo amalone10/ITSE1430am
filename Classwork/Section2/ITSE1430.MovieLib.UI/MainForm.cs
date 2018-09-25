@@ -19,19 +19,32 @@ namespace ITSE1430.MovieLib.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void OnFileExit(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Are you sure you want to exit?",
+                "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
+
             Close();
         }
 
         private void OnHelpAbout(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Better luck next time", "Help", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(this, "Better luck next time",
+                "Help", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void OnMovieAdd(object sender, EventArgs e)
+        {
+            var form = new MovieForm();
+
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            MessageBox.Show("Adding movie");
         }
     }
 }

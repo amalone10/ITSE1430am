@@ -63,7 +63,7 @@
             // _miFileExit
             // 
             this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(152, 22);
+            this._miFileExit.Size = new System.Drawing.Size(92, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -83,6 +83,7 @@
             this._miMovieAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
             this._miMovieAdd.Size = new System.Drawing.Size(152, 22);
             this._miMovieAdd.Text = "Add";
+            this._miMovieAdd.Click += new System.EventHandler(this.OnMovieAdd);
             // 
             // _miMovieEdit
             // 
