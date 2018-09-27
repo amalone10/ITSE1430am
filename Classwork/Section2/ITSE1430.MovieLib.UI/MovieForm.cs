@@ -17,6 +17,8 @@ namespace ITSE1430.MovieLib.UI
             InitializeComponent();
         }
 
+        public Movie Movie;
+
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -31,25 +33,28 @@ namespace ITSE1430.MovieLib.UI
         private void OnSave(object sender, EventArgs e)
         {
             var movie = new Movie();
+            var movie2 = new Movie();
 
             //name required
-            movie.Name = _txtName.Text;
+            movie.SetName(_txtName.Text);
             if (String.IsNullOrEmpty(_txtName.Text))
                 return;
 
-            movie.Description = _txtDescription.Text;
+            movie.SetDescription(_txtDescription.Text);
 
             //release year, if set
-            movie.ReleaseYear = GetInt32(_txtReleaseYear);
+            movie.SetReleaseYear(GetInt32(_txtReleaseYear));
             var releaseYear = GetInt32(_txtReleaseYear);
             if (releaseYear < 0)
                 return;
              
             //ru length, if set
-            movie.RunLength = GetInt32(_txtRunLength);
+            movie.SetRunLength(GetInt32(_txtRunLength));
             var runLength = GetInt32(_txtRunLength);
             if (runLength < 0)
                 return;
+
+            Movie = movie;
 
             DialogResult = DialogResult.OK;
             Close();
