@@ -88,13 +88,6 @@ namespace ITSE1430.MovieLib
                 _runLength = value;
         }*/
 
-        /*void Foo()
-        {
-            var x = RunLength;
-
-            var isLong = x > 100;
-        }*/
-
         /*mixed accessibility
         public int Id { get; private set; }
 
