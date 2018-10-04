@@ -36,8 +36,9 @@
             this._txtRunLength = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this._btnSave_ = new System.Windows.Forms.Button();
-            this._btnCancel_ = new System.Windows.Forms.Button();
+            this._btnSave = new System.Windows.Forms.Button();
+            this._btnCancel = new System.Windows.Forms.Button();
+            this._chkOwned = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -106,25 +107,35 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Run Length";
             // 
-            // _btnSave_
+            // _btnSave
             // 
-            this._btnSave_.Location = new System.Drawing.Point(116, 213);
-            this._btnSave_.Name = "_btnSave_";
-            this._btnSave_.Size = new System.Drawing.Size(75, 23);
-            this._btnSave_.TabIndex = 8;
-            this._btnSave_.Text = "Save";
-            this._btnSave_.UseVisualStyleBackColor = true;
-            this._btnSave_.Click += new System.EventHandler(this.OnSave);
+            this._btnSave.Location = new System.Drawing.Point(116, 213);
+            this._btnSave.Name = "_btnSave";
+            this._btnSave.Size = new System.Drawing.Size(75, 23);
+            this._btnSave.TabIndex = 8;
+            this._btnSave.Text = "Save";
+            this._btnSave.UseVisualStyleBackColor = true;
+            this._btnSave.Click += new System.EventHandler(this.OnSave);
             // 
-            // _btnCancel_
+            // _btnCancel
             // 
-            this._btnCancel_.Location = new System.Drawing.Point(197, 213);
-            this._btnCancel_.Name = "_btnCancel_";
-            this._btnCancel_.Size = new System.Drawing.Size(75, 23);
-            this._btnCancel_.TabIndex = 9;
-            this._btnCancel_.Text = "Cancel";
-            this._btnCancel_.UseVisualStyleBackColor = true;
-            this._btnCancel_.Click += new System.EventHandler(this.OnCancel);
+            this._btnCancel.Location = new System.Drawing.Point(197, 213);
+            this._btnCancel.Name = "_btnCancel";
+            this._btnCancel.Size = new System.Drawing.Size(75, 23);
+            this._btnCancel.TabIndex = 9;
+            this._btnCancel.Text = "Cancel";
+            this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.Click += new System.EventHandler(this.OnCancel);
+            // 
+            // _chkOwned
+            // 
+            this._chkOwned.AutoSize = true;
+            this._chkOwned.Location = new System.Drawing.Point(89, 189);
+            this._chkOwned.Name = "_chkOwned";
+            this._chkOwned.Size = new System.Drawing.Size(60, 17);
+            this._chkOwned.TabIndex = 10;
+            this._chkOwned.Text = "Owned";
+            this._chkOwned.UseVisualStyleBackColor = true;
             // 
             // MovieForm
             // 
@@ -132,8 +143,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.ControlBox = false;
-            this.Controls.Add(this._btnCancel_);
-            this.Controls.Add(this._btnSave_);
+            this.Controls.Add(this._chkOwned);
+            this.Controls.Add(this._btnCancel);
+            this.Controls.Add(this._btnSave);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._txtRunLength);
@@ -145,6 +157,7 @@
             this.Name = "MovieForm";
             this.ShowIcon = false;
             this.Text = "Movie Details";
+            this.Load += new System.EventHandler(this.MovieForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +173,8 @@
         private System.Windows.Forms.TextBox _txtRunLength;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button _btnSave_;
-        private System.Windows.Forms.Button _btnCancel_;
+        private System.Windows.Forms.Button _btnSave;
+        private System.Windows.Forms.Button _btnCancel;
+        private System.Windows.Forms.CheckBox _chkOwned;
     }
 }

@@ -17,7 +17,7 @@ namespace ITSE1430.MovieLib.UI
             InitializeComponent();
         }
 
-        public Movie Movie;
+        public Movie Movie { get; set; }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
@@ -50,12 +50,14 @@ namespace ITSE1430.MovieLib.UI
             if (movie.ReleaseYear < 0)
                 return;
 
-            //ru length, if set
+            //run length, if set
             movie.RunLength = GetInt32(_txtRunLength);
             //movie.SetRunLength(GetInt32(_txtRunLength));
             //var runLength = GetInt32(_txtRunLength);
             if (movie.RunLength < 0)
                 return;
+
+            movie.isOwned = _chkOwned.Checked;
 
             Movie = movie;
 
@@ -72,6 +74,18 @@ namespace ITSE1430.MovieLib.UI
                 return value;
 
             return -1;
+        }
+
+        private void MovieForm_Load(object sender, EventArgs e)
+        {
+            if (Movie != null)
+            {
+                _txtName.Text = Movie.Name;
+                _txtDescription.Text = Movie.Description;
+                _txtReleaseYear.Text = Movie.ReleaseYear.ToString();
+                _txtRunLength.Text = Movie.RunLength.ToString();
+                _chkOwned.Checked = Movie.isOwned;
+            }
         }
     }
 }

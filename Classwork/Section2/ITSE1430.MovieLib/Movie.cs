@@ -8,7 +8,7 @@ namespace ITSE1430.MovieLib
 {
     public class Movie
     {
-        public string Name { get; set; }    //auto properties
+        public string Name { get; set; }    //auto properties(properties should not have side effects)
         /*{
             get { return _name ?? ""; }     //string get ()
             set { _name = value; }          //viod set ( string value )
@@ -40,6 +40,14 @@ namespace ITSE1430.MovieLib
             }
         }*/
 
+        public bool IsColor
+        {
+            get { return ReleaseYear > 1940;  }
+        }
+
+        public bool isOwned { get; set; }
+
+        //protoyping for properties
         /*private string _name = "";
         //public System.String Name;
         private string _description;

@@ -37,6 +37,7 @@
             this._miMovieDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this._listMovies = new System.Windows.Forms.ListBox();
             this._mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             this._miMovieEdit.Name = "_miMovieEdit";
             this._miMovieEdit.Size = new System.Drawing.Size(152, 22);
             this._miMovieEdit.Text = "Edit";
+            this._miMovieEdit.Click += new System.EventHandler(this.OnMovieEdit);
             // 
             // _miMovieDelete
             // 
@@ -97,6 +99,7 @@
             this._miMovieDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this._miMovieDelete.Size = new System.Drawing.Size(152, 22);
             this._miMovieDelete.Text = "Delete";
+            this._miMovieDelete.Click += new System.EventHandler(this.OnMovieDelete);
             // 
             // helpToolStripMenuItem
             // 
@@ -114,12 +117,22 @@
             this._miHelpAbout.Text = "About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
+            // _listMovies
+            // 
+            this._listMovies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._listMovies.FormattingEnabled = true;
+            this._listMovies.Location = new System.Drawing.Point(0, 24);
+            this._listMovies.Name = "_listMovies";
+            this._listMovies.Size = new System.Drawing.Size(684, 437);
+            this._listMovies.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(684, 461);
+            this.Controls.Add(this._listMovies);
             this.Controls.Add(this._mainMenu);
             this.MainMenuStrip = this._mainMenu;
             this.Name = "MainForm";
@@ -144,6 +157,7 @@
         private System.Windows.Forms.ToolStripMenuItem _miMovieEdit;
         private System.Windows.Forms.ToolStripMenuItem _miMovieDelete;
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
+        private System.Windows.Forms.ListBox _listMovies;
     }
 }
 
