@@ -8,6 +8,37 @@ namespace ITSE1430.MovieLib
 {
     public class MovieDatabase
     {
+        public MovieDatabase() : this(true)
+        { }
+
+        private static Movie[] GetSeedMovies(bool seed)
+        {
+            if (!seed)
+                return new Movie[0];
+
+            var movies = new Movie[2];
+
+            movies[0] = new Movie();
+            movies[0].Name = "Jaws";
+            movies[0].RunLength = 120;
+            movies[0].ReleaseYear = 1977;
+
+            movies[1] = new Movie();
+            movies[1].Name = "What About Bob?";
+            movies[1].RunLength = 96;
+            movies[1].ReleaseYear = 2004;
+
+            return movies;
+        }
+        public MovieDatabase( bool seed ) : this(GetSeedMovies(seed))
+        { }
+
+        public MovieDatabase(Movie[] movies)
+        {
+            for (var index =0; index < movies.Length; index++)
+                _movies[index] = movies[index];
+        }
+
         private Movie[] _movies = new Movie[100];
 
         public void Add ( Movie movie )

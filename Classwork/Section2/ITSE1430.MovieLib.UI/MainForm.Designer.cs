@@ -82,14 +82,14 @@
             // 
             this._miMovieAdd.Name = "_miMovieAdd";
             this._miMovieAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miMovieAdd.Size = new System.Drawing.Size(152, 22);
+            this._miMovieAdd.Size = new System.Drawing.Size(131, 22);
             this._miMovieAdd.Text = "Add";
             this._miMovieAdd.Click += new System.EventHandler(this.OnMovieAdd);
             // 
             // _miMovieEdit
             // 
             this._miMovieEdit.Name = "_miMovieEdit";
-            this._miMovieEdit.Size = new System.Drawing.Size(152, 22);
+            this._miMovieEdit.Size = new System.Drawing.Size(131, 22);
             this._miMovieEdit.Text = "Edit";
             this._miMovieEdit.Click += new System.EventHandler(this.OnMovieEdit);
             // 
@@ -97,7 +97,7 @@
             // 
             this._miMovieDelete.Name = "_miMovieDelete";
             this._miMovieDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miMovieDelete.Size = new System.Drawing.Size(152, 22);
+            this._miMovieDelete.Size = new System.Drawing.Size(131, 22);
             this._miMovieDelete.Text = "Delete";
             this._miMovieDelete.Click += new System.EventHandler(this.OnMovieDelete);
             // 
@@ -125,6 +125,8 @@
             this._listMovies.Name = "_listMovies";
             this._listMovies.Size = new System.Drawing.Size(684, 437);
             this._listMovies.TabIndex = 1;
+            this._listMovies.DoubleClick += new System.EventHandler(this.OnMovieDoubleClick);
+            this._listMovies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnListKeyUp);
             // 
             // MainForm
             // 
@@ -138,7 +140,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Movie Library";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this._mainMenu.ResumeLayout(false);
             this._mainMenu.PerformLayout();
             this.ResumeLayout(false);

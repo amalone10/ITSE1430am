@@ -17,10 +17,18 @@ namespace ITSE1430.MovieLib.UI
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            _listMovies.DisplayMember = "Name";
+        //this method can be overridden in a derived type
+        protected virtual void SomeFunction()
+        { }
 
+        //this method MUST BE degined in a derived type
+        //protected abstract void SomeAbstractFunction();
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            _listMovies.DisplayMember = "Name";
             RefreshMovies();
         }
 
@@ -68,7 +76,7 @@ namespace ITSE1430.MovieLib.UI
             return _listMovies.SelectedItem as Movie;
         }
 
-        private void OnMovieDelete(object sender, EventArgs e)
+        private void DeleteMovie()
         {
             var item = GetSelectedMovie();
             if (item == null)
@@ -78,7 +86,7 @@ namespace ITSE1430.MovieLib.UI
             RefreshMovies();
         }
 
-        private void OnMovieEdit(object sender, EventArgs e)
+        private void EditMovie()
         {
             var item = GetSelectedMovie();
             if (item == null)
@@ -91,6 +99,29 @@ namespace ITSE1430.MovieLib.UI
 
             _database.Edit(item.Name, form.Movie);
             RefreshMovies();
+        }
+
+        private void OnMovieDelete(object sender, EventArgs e)
+        {
+            DeleteMovie();
+        }
+
+        private void OnMovieEdit(object sender, EventArgs e)
+        {
+            EditMovie();
+        }
+
+        private void OnMovieDoubleClick(object sender, EventArgs e)
+        {
+            EditMovie();
+        }
+
+        private void OnListKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                DeleteMovie();
+            };
         }
     }
 }
