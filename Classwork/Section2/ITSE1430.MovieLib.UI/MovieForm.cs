@@ -35,13 +35,14 @@ namespace ITSE1430.MovieLib.UI
             if (!ValidateChildren())
                 return;
 
-            var movie = new Movie();
-
-            movie.Name = _txtName.Text;
-            movie.Description = _txtDescription.Text;
-            movie.ReleaseYear = GetInt32(_txtReleaseYear);
-            movie.RunLength = GetInt32(_txtRunLength);
-            movie.isOwned = _chkOwned.Checked;
+            var movie = new Movie()
+            {
+                Name = _txtName.Text,
+                Description = _txtDescription.Text,
+                ReleaseYear = GetInt32(_txtReleaseYear),
+                RunLength = GetInt32(_txtRunLength),
+                isOwned = _chkOwned.Checked,
+            };
 
             Movie = movie;
 
