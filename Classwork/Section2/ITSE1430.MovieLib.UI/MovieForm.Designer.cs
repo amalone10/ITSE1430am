@@ -99,7 +99,6 @@
             this._txtRunLength.Name = "_txtRunLength";
             this._txtRunLength.Size = new System.Drawing.Size(102, 20);
             this._txtRunLength.TabIndex = 4;
-            this._txtRunLength.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this._txtRunLength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingRunLength);
             // 
             // label3
@@ -166,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(329, 231);
+            this.ClientSize = new System.Drawing.Size(329, 254);
             this.ControlBox = false;
             this.Controls.Add(this._chkOwned);
             this.Controls.Add(this._btnCancel);

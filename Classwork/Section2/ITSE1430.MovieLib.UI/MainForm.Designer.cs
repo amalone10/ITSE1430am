@@ -64,7 +64,7 @@
             // _miFileExit
             // 
             this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(92, 22);
+            this._miFileExit.Size = new System.Drawing.Size(180, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -82,14 +82,14 @@
             // 
             this._miMovieAdd.Name = "_miMovieAdd";
             this._miMovieAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miMovieAdd.Size = new System.Drawing.Size(131, 22);
+            this._miMovieAdd.Size = new System.Drawing.Size(180, 22);
             this._miMovieAdd.Text = "Add";
             this._miMovieAdd.Click += new System.EventHandler(this.OnMovieAdd);
             // 
             // _miMovieEdit
             // 
             this._miMovieEdit.Name = "_miMovieEdit";
-            this._miMovieEdit.Size = new System.Drawing.Size(131, 22);
+            this._miMovieEdit.Size = new System.Drawing.Size(180, 22);
             this._miMovieEdit.Text = "Edit";
             this._miMovieEdit.Click += new System.EventHandler(this.OnMovieEdit);
             // 
@@ -97,7 +97,7 @@
             // 
             this._miMovieDelete.Name = "_miMovieDelete";
             this._miMovieDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miMovieDelete.Size = new System.Drawing.Size(131, 22);
+            this._miMovieDelete.Size = new System.Drawing.Size(180, 22);
             this._miMovieDelete.Text = "Delete";
             this._miMovieDelete.Click += new System.EventHandler(this.OnMovieDelete);
             // 
