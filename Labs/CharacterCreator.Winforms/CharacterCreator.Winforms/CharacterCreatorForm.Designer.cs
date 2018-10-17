@@ -91,7 +91,7 @@
             "Wizard"});
             this._comboProfession.Location = new System.Drawing.Point(73, 42);
             this._comboProfession.Name = "_comboProfession";
-            this._comboProfession.Size = new System.Drawing.Size(121, 21);
+            this._comboProfession.Size = new System.Drawing.Size(168, 21);
             this._comboProfession.TabIndex = 2;
             // 
             // label3
@@ -115,7 +115,7 @@
             "Human"});
             this._comboRace.Location = new System.Drawing.Point(73, 75);
             this._comboRace.Name = "_comboRace";
-            this._comboRace.Size = new System.Drawing.Size(121, 21);
+            this._comboRace.Size = new System.Drawing.Size(168, 21);
             this._comboRace.TabIndex = 3;
             // 
             // label4
@@ -130,7 +130,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(114, 149);
+            this.label5.Location = new System.Drawing.Point(144, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 0;
@@ -139,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(115, 112);
+            this.label6.Location = new System.Drawing.Point(145, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 0;
@@ -181,13 +181,13 @@
             this._txtDescription.Location = new System.Drawing.Point(73, 219);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(171, 100);
+            this._txtDescription.Size = new System.Drawing.Size(171, 54);
             this._txtDescription.TabIndex = 9;
             // 
             // _btnSave
             // 
             this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSave.Location = new System.Drawing.Point(88, 351);
+            this._btnSave.Location = new System.Drawing.Point(88, 305);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
             this._btnSave.TabIndex = 10;
@@ -199,7 +199,7 @@
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
-            this._btnCancel.Location = new System.Drawing.Point(169, 351);
+            this._btnCancel.Location = new System.Drawing.Point(169, 305);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 11;
@@ -240,7 +240,7 @@
             // 
             // _txtConstitution
             // 
-            this._txtConstitution.Location = new System.Drawing.Point(182, 146);
+            this._txtConstitution.Location = new System.Drawing.Point(212, 146);
             this._txtConstitution.Name = "_txtConstitution";
             this._txtConstitution.Size = new System.Drawing.Size(29, 20);
             this._txtConstitution.TabIndex = 8;
@@ -249,7 +249,7 @@
             // 
             // _txtIntelligence
             // 
-            this._txtIntelligence.Location = new System.Drawing.Point(182, 109);
+            this._txtIntelligence.Location = new System.Drawing.Point(212, 109);
             this._txtIntelligence.Name = "_txtIntelligence";
             this._txtIntelligence.Size = new System.Drawing.Size(29, 20);
             this._txtIntelligence.TabIndex = 7;
@@ -265,6 +265,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(259, 386);
             this.ControlBox = false;
             this.Controls.Add(this._txtIntelligence);

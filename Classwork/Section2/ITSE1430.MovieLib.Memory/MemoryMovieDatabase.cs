@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITSE1430.MovieLib
+namespace ITSE1430.MovieLib.Memory
 {
-    public class MovieDatabase
+    public class MemoryMovieDatabase
     {
-        public MovieDatabase() : this(true)
+        public MemoryMovieDatabase() : this(true)
         { }
 
-        public MovieDatabase( bool seed ) : this(GetSeedMovies(seed))
+        public MemoryMovieDatabase( bool seed ) : this(GetSeedMovies(seed))
         { }
 
-        public MovieDatabase(Movie[] movies)
+        public MemoryMovieDatabase(Movie[] movies)
         {
             _items.AddRange(movies);
         }
@@ -88,6 +88,6 @@ namespace ITSE1430.MovieLib
             Add(movie);
         }
 
-        private List<Movie> _items = new List<Movie>();//generic type
+        private List<Movie> _items = new List<Movie>();
     }
 }

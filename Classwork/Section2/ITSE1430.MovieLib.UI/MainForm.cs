@@ -32,8 +32,6 @@ namespace ITSE1430.MovieLib.UI
             RefreshMovies();
         }
 
-        private MovieDatabase _database = new MovieDatabase();
-
         private void OnFileExit(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?",
@@ -123,5 +121,7 @@ namespace ITSE1430.MovieLib.UI
                 DeleteMovie();
             };
         }
+
+        private MovieDatabase _database = new MemoryMovieDatabase();
     }
 }
