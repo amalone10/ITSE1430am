@@ -29,7 +29,7 @@ namespace CharacterCreator
                 new Character()
                 {
                     Name = "BaldHammer",
-                    Profession = "Fighter",
+                    Profession = "Hunter",
                     Race = "Dwarf",
                     Strength = 90,
                     Agility = 30,
@@ -41,7 +41,7 @@ namespace CharacterCreator
                 new Character()
                 {
                     Name = "Solaris",
-                    Profession = "",
+                    Profession = "Rogue",
                     Race = "Elf",
                     Strength = 30,
                     Agility = 80,
@@ -53,7 +53,7 @@ namespace CharacterCreator
                 new Character()
                 {
                     Name = "Gadget",
-                    Profession = "",
+                    Profession = "Wizard",
                     Race = "Gnome",
                     Strength = 40,
                     Agility = 30,
@@ -65,7 +65,7 @@ namespace CharacterCreator
                 new Character()
                 {
                     Name = "Moonkin",
-                    Profession = "",
+                    Profession = "Priest",
                     Race = "Half Elf",
                     Strength = 70,
                     Agility = 90,
@@ -77,7 +77,7 @@ namespace CharacterCreator
                 new Character()
                 {
                     Name = "Leroy",
-                    Profession = "",
+                    Profession = "Fighter",
                     Race = "Human",
                     Strength = 80,
                     Agility = 70,
@@ -103,7 +103,7 @@ namespace CharacterCreator
             return temp;
         }
 
-        private Character Find(string name)
+        private Character FindCharacter(string name)
         {
             var pairs = new Dictionary<string, Character>();
 
@@ -117,23 +117,23 @@ namespace CharacterCreator
         }
 
         //helpers
-        public void Add(Character character)
+        public void AddCharacter(Character character)
         {
             _items.Add(character);
         }
 
-        public void Remove(string name)
+        public void RemoveCharacter(string name)
         {
-            var character = Find(name);
+            var character = FindCharacter(name);
             if (character != null)
                 _items.Remove(character);
         }
 
-        public void Edit(string name, Character character)
+        public void EditCharacter(string name, Character character)
         {
-            Remove(name);
+            RemoveCharacter(name);
 
-            Add(character);
+            AddCharacter(character);
         }
 
         //list of characters

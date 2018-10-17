@@ -165,6 +165,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 222);
             this.label9.Name = "label9";
@@ -174,6 +175,9 @@
             // 
             // _txtDescription
             // 
+            this._txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._txtDescription.Location = new System.Drawing.Point(73, 219);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
@@ -182,6 +186,7 @@
             // 
             // _btnSave
             // 
+            this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnSave.Location = new System.Drawing.Point(88, 351);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
@@ -192,6 +197,7 @@
             // 
             // _btnCancel
             // 
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
             this._btnCancel.Location = new System.Drawing.Point(169, 351);
             this._btnCancel.Name = "_btnCancel";
@@ -203,11 +209,14 @@
             // 
             // _txtStrength
             // 
+            this._txtStrength.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._txtStrength.Location = new System.Drawing.Point(73, 109);
             this._txtStrength.Name = "_txtStrength";
             this._txtStrength.Size = new System.Drawing.Size(29, 20);
             this._txtStrength.TabIndex = 4;
             this._txtStrength.Text = "50";
+            this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
             // 
             // _txtCharisma
             // 
@@ -216,14 +225,18 @@
             this._txtCharisma.Size = new System.Drawing.Size(29, 20);
             this._txtCharisma.TabIndex = 6;
             this._txtCharisma.Text = "50";
+            this._txtCharisma.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateCharisma);
             // 
             // _txtAgility
             // 
+            this._txtAgility.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._txtAgility.Location = new System.Drawing.Point(73, 146);
             this._txtAgility.Name = "_txtAgility";
             this._txtAgility.Size = new System.Drawing.Size(29, 20);
             this._txtAgility.TabIndex = 5;
             this._txtAgility.Text = "50";
+            this._txtAgility.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateAgility);
             // 
             // _txtConstitution
             // 
@@ -232,6 +245,7 @@
             this._txtConstitution.Size = new System.Drawing.Size(29, 20);
             this._txtConstitution.TabIndex = 8;
             this._txtConstitution.Text = "50";
+            this._txtConstitution.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateConstitution);
             // 
             // _txtIntelligence
             // 
@@ -240,6 +254,7 @@
             this._txtIntelligence.Size = new System.Drawing.Size(29, 20);
             this._txtIntelligence.TabIndex = 7;
             this._txtIntelligence.Text = "50";
+            this._txtIntelligence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntelligence);
             // 
             // _errors
             // 
@@ -250,7 +265,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(259, 386);
             this.ControlBox = false;
             this.Controls.Add(this._txtIntelligence);

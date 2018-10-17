@@ -48,19 +48,6 @@ namespace CharacterCreator.Winforms
             return -1;
         }
 
-        private void OnValidateName(object sender, CancelEventArgs e)
-        {
-            var control = sender as TextBox;
-
-            if (String.IsNullOrEmpty(control.Text))
-            {
-                _errors.SetError(control, "Name is required");
-                e.Cancel = true;
-            }
-            else
-                _errors.SetError(control, "");
-        }
-
         private void OnCancel(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -90,5 +77,90 @@ namespace CharacterCreator.Winforms
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        //beginning of validation
+        private void OnValidateName(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                _errors.SetError(control, "Name is required");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateStrength(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+
+            if (result <= 0 || result >= 100)
+            {
+                _errors.SetError(control, "Strength must be between 0 and 100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateAgility(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+
+            if (result <= 0 || result >= 100)
+            {
+                _errors.SetError(control, "Agility must be between 0 and 100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateCharisma(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+
+            if (result <= 0 || result >= 100)
+            {
+                _errors.SetError(control, "Charisma must be between 0 and 100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateIntelligence(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+
+            if (result <= 0 || result >= 100)
+            {
+                _errors.SetError(control, "Intelligence must be between 0 and 100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateConstitution(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+
+            if (result <= 0 || result >= 100)
+            {
+                _errors.SetError(control, "Constitution must be between 0 and 100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+        //end of validation
     }
 }

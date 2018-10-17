@@ -17,6 +17,14 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            _listCharacter.DisplayMember = "Name";
+            RefreshCharacter();
+        }
+
         //exit
         private void OnFileExit(object sender, EventArgs e)
         {
@@ -41,6 +49,9 @@ namespace CharacterCreator.Winforms
 
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
+
+            _database.AddCharacter(form.Character);
+            RefreshCharacter();
         }
 
         //double click listed character
@@ -58,6 +69,10 @@ namespace CharacterCreator.Winforms
         //delete
         private void OnCharacterDelete(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure you want to delete this character?",
+            "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+
             DeleteCharacter();
         }
 
@@ -81,7 +96,7 @@ namespace CharacterCreator.Winforms
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Edit(item.Name, form.Character);
+            _database.EditCharacter(item.Name, form.Character);
             RefreshCharacter();
         }
 
@@ -91,7 +106,7 @@ namespace CharacterCreator.Winforms
             if (item == null)
                 return;
 
-            _database.Remove(item.Name);
+            _database.RemoveCharacter(item.Name);
             RefreshCharacter();
         }
 
