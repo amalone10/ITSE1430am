@@ -181,13 +181,13 @@
             this._txtDescription.Location = new System.Drawing.Point(73, 219);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(171, 54);
+            this._txtDescription.Size = new System.Drawing.Size(171, 76);
             this._txtDescription.TabIndex = 9;
             // 
             // _btnSave
             // 
             this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSave.Location = new System.Drawing.Point(88, 305);
+            this._btnSave.Location = new System.Drawing.Point(85, 301);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
             this._btnSave.TabIndex = 10;
@@ -199,7 +199,7 @@
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
-            this._btnCancel.Location = new System.Drawing.Point(169, 305);
+            this._btnCancel.Location = new System.Drawing.Point(166, 301);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 11;
@@ -266,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(259, 386);
+            this.ClientSize = new System.Drawing.Size(259, 336);
             this.ControlBox = false;
             this.Controls.Add(this._txtIntelligence);
             this.Controls.Add(this._txtConstitution);
@@ -288,8 +288,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(275, 425);
-            this.MinimumSize = new System.Drawing.Size(275, 425);
+            this.MaximumSize = new System.Drawing.Size(275, 375);
+            this.MinimumSize = new System.Drawing.Size(275, 375);
             this.Name = "CharacterCreatorForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
