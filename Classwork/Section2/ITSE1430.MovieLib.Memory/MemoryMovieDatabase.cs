@@ -6,41 +6,9 @@ using System.Threading.Tasks;
 
 namespace ITSE1430.MovieLib.Memory
 {
-    public class MemoryMovieDatabase
+    public class MemoryMovieDatabase : MovieDatabase
     {
-        public MemoryMovieDatabase() : this(true)
-        { }
-
-        public MemoryMovieDatabase( bool seed ) : this(GetSeedMovies(seed))
-        { }
-
-        public MemoryMovieDatabase(Movie[] movies)
-        {
-            _items.AddRange(movies);
-        }
-
-        private static Movie[] GetSeedMovies(bool seed)
-        {
-            if (!seed)
-                return new Movie[0];
-
-            return new Movie[] {
-                new Movie()
-                {
-                    Name = "Jaws",
-                    RunLength = 120,
-                    ReleaseYear = 1977,
-                },
-                new Movie()
-                {
-                    Name = "What About Bob?",
-                    RunLength = 96,
-                    ReleaseYear = 2004,
-                },
-            };
-        }
-
-        public Movie[] GetAll()
+        protected override Movie[] GetAllCore()
         {
             var count = _items.Count;
 
@@ -54,7 +22,7 @@ namespace ITSE1430.MovieLib.Memory
             return temp;
         }
 
-        private Movie FindMovie (string name)
+        protected override Movie FindByName (string name)
         {
             var pairs = new Dictionary<string, Movie>();
 
@@ -67,25 +35,23 @@ namespace ITSE1430.MovieLib.Memory
             return null;
         }
 
-        public void Add(Movie movie)
+        protected override void AddCore(Movie movie)
         {
             _items.Add(movie);
         }
 
-        public void Remove ( string name )
+        protected override void RemoveCore ( string name )
         {
-            var movie = FindMovie(name);
+            var movie = FindByName(name);
             if (movie != null)
                 _items.Remove(movie);
         }
 
-        public void Edit ( string name, Movie movie )
+        protected override void EditCore ( Movie oldMovie, Movie newMovie )
         {
-            //find movie by name
-            Remove(name);
+            _items.Remove(oldMovie);
 
-            //replace it
-            Add(movie);
+            _items.Add(newMovie);
         }
 
         private List<Movie> _items = new List<Movie>();

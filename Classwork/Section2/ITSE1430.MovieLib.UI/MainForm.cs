@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITSE1430.MovieLib.Memory;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,8 @@ namespace ITSE1430.MovieLib.UI
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            SeedDatabase.Seed(_database);
 
             _listMovies.DisplayMember = "Name";
             RefreshMovies();
@@ -95,7 +98,7 @@ namespace ITSE1430.MovieLib.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Edit(item.Name, form.Movie);
+            _database.EditCore(item.Name, form.Movie);
             RefreshMovies();
         }
 
