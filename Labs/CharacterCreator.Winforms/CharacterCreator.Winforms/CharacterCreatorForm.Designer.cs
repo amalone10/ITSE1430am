@@ -66,7 +66,7 @@
             // 
             this._txtName.Location = new System.Drawing.Point(73, 10);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(168, 20);
+            this._txtName.Size = new System.Drawing.Size(160, 20);
             this._txtName.TabIndex = 1;
             this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
@@ -91,7 +91,7 @@
             "Wizard"});
             this._comboProfession.Location = new System.Drawing.Point(73, 42);
             this._comboProfession.Name = "_comboProfession";
-            this._comboProfession.Size = new System.Drawing.Size(168, 21);
+            this._comboProfession.Size = new System.Drawing.Size(160, 21);
             this._comboProfession.TabIndex = 2;
             // 
             // label3
@@ -115,7 +115,7 @@
             "Human"});
             this._comboRace.Location = new System.Drawing.Point(73, 75);
             this._comboRace.Name = "_comboRace";
-            this._comboRace.Size = new System.Drawing.Size(168, 21);
+            this._comboRace.Size = new System.Drawing.Size(160, 21);
             this._comboRace.TabIndex = 3;
             // 
             // label4
@@ -130,7 +130,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(144, 149);
+            this.label5.Location = new System.Drawing.Point(137, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 0;
@@ -139,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(145, 112);
+            this.label6.Location = new System.Drawing.Point(137, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 0;
@@ -148,7 +148,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 188);
+            this.label7.Location = new System.Drawing.Point(17, 180);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 0;
@@ -157,7 +157,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(33, 149);
+            this.label8.Location = new System.Drawing.Point(33, 145);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 0;
@@ -165,9 +165,8 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 222);
+            this.label9.Location = new System.Drawing.Point(7, 214);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 0;
@@ -178,16 +177,16 @@
             this._txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtDescription.Location = new System.Drawing.Point(73, 219);
+            this._txtDescription.Location = new System.Drawing.Point(73, 211);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(171, 76);
+            this._txtDescription.Size = new System.Drawing.Size(160, 94);
             this._txtDescription.TabIndex = 9;
             // 
             // _btnSave
             // 
             this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSave.Location = new System.Drawing.Point(85, 301);
+            this._btnSave.Location = new System.Drawing.Point(73, 326);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
             this._btnSave.TabIndex = 10;
@@ -199,7 +198,7 @@
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
-            this._btnCancel.Location = new System.Drawing.Point(166, 301);
+            this._btnCancel.Location = new System.Drawing.Point(158, 326);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 11;
@@ -220,7 +219,7 @@
             // 
             // _txtCharisma
             // 
-            this._txtCharisma.Location = new System.Drawing.Point(73, 185);
+            this._txtCharisma.Location = new System.Drawing.Point(73, 177);
             this._txtCharisma.Name = "_txtCharisma";
             this._txtCharisma.Size = new System.Drawing.Size(29, 20);
             this._txtCharisma.TabIndex = 6;
@@ -231,7 +230,7 @@
             // 
             this._txtAgility.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this._txtAgility.Location = new System.Drawing.Point(73, 146);
+            this._txtAgility.Location = new System.Drawing.Point(73, 142);
             this._txtAgility.Name = "_txtAgility";
             this._txtAgility.Size = new System.Drawing.Size(29, 20);
             this._txtAgility.TabIndex = 5;
@@ -240,7 +239,7 @@
             // 
             // _txtConstitution
             // 
-            this._txtConstitution.Location = new System.Drawing.Point(212, 146);
+            this._txtConstitution.Location = new System.Drawing.Point(204, 142);
             this._txtConstitution.Name = "_txtConstitution";
             this._txtConstitution.Size = new System.Drawing.Size(29, 20);
             this._txtConstitution.TabIndex = 8;
@@ -249,7 +248,7 @@
             // 
             // _txtIntelligence
             // 
-            this._txtIntelligence.Location = new System.Drawing.Point(212, 109);
+            this._txtIntelligence.Location = new System.Drawing.Point(204, 109);
             this._txtIntelligence.Name = "_txtIntelligence";
             this._txtIntelligence.Size = new System.Drawing.Size(29, 20);
             this._txtIntelligence.TabIndex = 7;
@@ -266,7 +265,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(259, 336);
+            this.ClientSize = new System.Drawing.Size(259, 361);
             this.ControlBox = false;
             this.Controls.Add(this._txtIntelligence);
             this.Controls.Add(this._txtConstitution);
@@ -288,8 +287,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(275, 375);
-            this.MinimumSize = new System.Drawing.Size(275, 375);
+            this.MaximumSize = new System.Drawing.Size(275, 400);
+            this.MinimumSize = new System.Drawing.Size(275, 400);
             this.Name = "CharacterCreatorForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
