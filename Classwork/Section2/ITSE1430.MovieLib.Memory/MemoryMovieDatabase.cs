@@ -8,18 +8,9 @@ namespace ITSE1430.MovieLib.Memory
 {
     public class MemoryMovieDatabase : MovieDatabase
     {
-        protected override Movie[] GetAllCore()
+        protected override IEnumerable<Movie> GetAllCore()
         {
-            var count = _items.Count;
-
-            var temp = new Movie[count];
-            var index = 0;
-            foreach (var movie in _items)
-            {
-                temp[index++] = movie;
-            };
-
-            return temp;
+            return _items;
         }
 
         protected override Movie FindByName (string name)

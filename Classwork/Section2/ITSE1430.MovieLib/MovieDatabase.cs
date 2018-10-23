@@ -8,7 +8,7 @@ namespace ITSE1430.MovieLib
 {
     public abstract class MovieDatabase
     {
-        public Movie[] GetAll()
+        public IEnumerable<Movie> GetAll()
         {
             return GetAllCore();
         }
@@ -22,7 +22,7 @@ namespace ITSE1430.MovieLib
             AddCore(movie);
         }
 
-        public void Remove ( string name )
+        public void Remove( string name )
         {
             //todo validate
             if (string.IsNullOrEmpty(name))
@@ -47,7 +47,7 @@ namespace ITSE1430.MovieLib
             EditCore(exsisting, movie);
         }
 
-        protected abstract Movie[] GetAllCore();
+        protected abstract IEnumerable<Movie> GetAllCore();
 
         protected abstract void AddCore(Movie movie);
 

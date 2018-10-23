@@ -69,7 +69,9 @@ namespace ITSE1430.MovieLib.UI
             var movies = _database.GetAll();
 
             _listMovies.Items.Clear();
-            _listMovies.Items.AddRange(movies);
+
+            foreach (var movie in movies)
+                _listMovies.Items.Add(movies);
         }
 
         private Movie GetSelectedMovie()

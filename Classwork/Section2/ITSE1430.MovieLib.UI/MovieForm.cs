@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -39,8 +40,13 @@ namespace ITSE1430.MovieLib.UI
                 isOwned = _chkOwned.Checked,
             };
 
-            Movie = movie;
+            var results = ObjectValidator.Validate(movie);
+            foreach (var result in results)
+            {
+                MessageBox.Show(this, result.ErrorMessage, "Validation Failed", MessageBoxButtons.OK);
+            }
 
+            Movie = movie;
             DialogResult = DialogResult.OK;
             Close();
         }
