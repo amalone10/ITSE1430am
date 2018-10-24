@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ITSE1430.MovieLib
 {
-    public static class SeedDatabase
+    public static class MovieDatabaseExtentions
     {
-        public static void Seed ( MovieDatabase database )
+        public static void Seed ( this IMovieDatabase source )
         {
             var movies =  new Movie[] {
                 new Movie()
@@ -24,13 +24,13 @@ namespace ITSE1430.MovieLib
                     ReleaseYear = 2004,
                 },
             };
-            Seed(database, movies);
+            Seed(source, movies);
         }
 
-        public static void Seed ( MovieDatabase database, Movie[] movies )
+        public static void Seed ( this IMovieDatabase source, Movie[] movies )
         {
             foreach (var movie in movies)
-                database.Add(movie);
+                source.Add(movie);
         }
     }
 }

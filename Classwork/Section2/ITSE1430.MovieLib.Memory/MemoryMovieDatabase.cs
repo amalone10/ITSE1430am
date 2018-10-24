@@ -10,7 +10,19 @@ namespace ITSE1430.MovieLib.Memory
     {
         protected override IEnumerable<Movie> GetAllCore()
         {
-            return _items;
+            return _items.Select(Clone);
+        }
+
+        private Movie Clone( Movie item )
+        {
+            return new Movie()
+            {
+                Name = item.Name,
+                Description = item.Description,
+                ReleaseYear = item.ReleaseYear,
+                RunLength = item.RunLength,
+                isOwned = item.isOwned,
+            };
         }
 
         protected override Movie FindByName (string name)
