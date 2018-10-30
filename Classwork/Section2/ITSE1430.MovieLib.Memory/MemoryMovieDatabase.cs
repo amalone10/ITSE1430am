@@ -10,38 +10,27 @@ namespace ITSE1430.MovieLib.Memory
     {
         protected override IEnumerable<Movie> GetAllCore()
         {
-            return _items.Select(Clone);
-        }
-
-        private Movie Clone( Movie item )
-        {
-            return new Movie()
-            {
-                Name = item.Name,
-                Description = item.Description,
-                ReleaseYear = item.ReleaseYear,
-                RunLength = item.RunLength,
-                isOwned = item.isOwned,
-            };
+            return from item in _items
+                select new Movie()
+                {
+                    Name = item.Name,
+                    Description = item.Description,
+                    ReleaseYear = item.ReleaseYear,
+                    RunLength = item.RunLength,
+                    isOwned = item.isOwned,
+                };
         }
 
         protected override Movie FindByName (string name)
         {
             var pairs = new Dictionary<string, Movie>();
 
-            foreach (var movie in _items)
-            {
-                if (String.Compare(name, movie.Name, true) == 0)
-                    return movie;
-            };
-
-            return null;
+            return (from m in _items
+                   where String.Compare(name, m.Name, true) == 0
+                   select m).FirstOrDefault();
         }
 
-        protected override void AddCore(Movie movie)
-        {
-            _items.Add(movie);
-        }
+        protected override void AddCore(Movie movie) => _items.Add(movie);
 
         protected override void RemoveCore ( string name )
         {

@@ -9,7 +9,7 @@ namespace ITSE1430.MovieLib
 {
     public class Movie : IValidatableObject
     {
-        public string Name { get; set; }    //auto properties(properties should not have side effects)
+        public string Name { get; set; }                //auto properties(properties should not have side effects)
 
         public string Description { get; set; }
 
@@ -17,10 +17,7 @@ namespace ITSE1430.MovieLib
 
         public int RunLength { get; set; }
 
-        public bool IsColor
-        {
-            get { return ReleaseYear > 1940;  }
-        }
+        public bool IsColor => ReleaseYear > 1940;      //read only property
 
         public bool isOwned { get; set; }
 
