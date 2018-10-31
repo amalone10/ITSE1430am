@@ -29,6 +29,8 @@ namespace ITSE1430.MovieLib.UI
         {
             base.OnLoad(e);
 
+            _database.Add(new Movie());
+
             //SeedDatabase.Seed(_database);
             _database.Seed();
 

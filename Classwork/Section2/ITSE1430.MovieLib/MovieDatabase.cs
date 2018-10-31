@@ -15,9 +15,9 @@ namespace ITSE1430.MovieLib
 
         public void Add(Movie movie)
         {
-            //todo: validate
-            if (movie == null)
-                return;
+            if(movie == null)
+                throw new ArgumentNullException(nameof(movie));
+                ObjectValidator.Validate(movie);
 
             AddCore(movie);
         }
@@ -33,16 +33,19 @@ namespace ITSE1430.MovieLib
 
         public void EditCore ( string name, Movie movie )
         {
-            //todo validate
-            if (String.IsNullOrEmpty(name))
-                return;
+            if (name == null)
+                throw new ArgumentNullException(nameof(name));
+            else if (name == "")
+                throw new ArgumentException("Name cannot be empty.", nameof(name));
+
             if (movie == null)
-                return;
+                throw new ArgumentNullException(nameof(movie));
+                ObjectValidator.Validate(movie);
 
             //find movie by name
             var exsisting = FindByName(name);
             if (exsisting == null)
-                return;
+                throw new Exception("Movie not found.");
 
             EditCore(exsisting, movie);
         }
