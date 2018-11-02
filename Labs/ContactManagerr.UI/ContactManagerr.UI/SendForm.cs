@@ -19,6 +19,7 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
+        //load
         private void SendForm_Load(object sender, EventArgs e)
         {
             if (Contact != null)
@@ -31,6 +32,7 @@ namespace ContactManager.UI
             ValidateChildren();
         }
 
+        //send
         private void OnSend(object sender, EventArgs e)
         {
             if (!ValidateChildren())
@@ -49,12 +51,14 @@ namespace ContactManager.UI
             Close();
         }
 
+        //cancel
         private void OnCancel(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
+        //validation
         private void OnValidatingSubject(object sender, CancelEventArgs e)
         {
             var control = sender as TextBox;

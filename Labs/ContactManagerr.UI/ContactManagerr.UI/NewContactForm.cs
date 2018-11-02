@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace ContactManager.UI
 {
-    public partial class NewContactsForm : Form
+    public partial class NewContactForm : Form
     {
         public Contact Contact { get; set; }
 
-        public NewContactsForm()
+        public NewContactForm()
         {
             InitializeComponent();
         }
 
         //load
-        private void NewContactsForm_Load(object sender, EventArgs e)
+        private void NewContactForm_Load(object sender, EventArgs e)
         {
             if (Contact != null)
             {

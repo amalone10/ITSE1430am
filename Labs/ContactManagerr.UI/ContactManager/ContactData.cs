@@ -19,13 +19,13 @@ namespace ContactManager
             _items.AddRange(contact);
         }
 
-        //default characters
+        //default contacts
         private static Contact[] GetSeedContact(bool seed)
         {
             if (!seed)
                 return new Contact[0];
 
-            return new [] {
+            return new[] {
                 new Contact()
                 {
                     Name = "John Doe",

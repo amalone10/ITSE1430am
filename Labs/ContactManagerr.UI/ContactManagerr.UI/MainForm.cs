@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContactManager.UI
@@ -25,7 +32,7 @@ namespace ContactManager.UI
         private void OnFileExit(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?",
-            "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+                "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
             Close();
@@ -35,13 +42,13 @@ namespace ContactManager.UI
         private void OnHelpAbout(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Alex Malone\nITSE1430\nContact Manager",
-            "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        //new contacts
+        //new contact
         private void OnContactsNew(object sender, EventArgs e)
         {
-            var form = new NewContactsForm();
+            var form = new NewContactForm();
 
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
@@ -51,20 +58,20 @@ namespace ContactManager.UI
             RefreshMessage();
         }
 
-        //click contact list
-        private void OnContactDoublClick(object sender, EventArgs e)
-        {
-            EditContact();
-        }
-
         //edit
         private void OnContactsEdit(object sender, EventArgs e)
         {
             EditContact();
         }
 
-        //click message list
-        private void OnMessageDoubleClick(object sender, EventArgs e)
+        //contact list click
+        private void OnContactDoubleClick(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        //message list click
+        private void OnMessagesDoubleClick(object sender, EventArgs e)
         {
             SendMessage();
         }
@@ -75,22 +82,14 @@ namespace ContactManager.UI
             SendMessage();
         }
 
-        //delete
-        private void OnContactDelete(object sender, EventArgs e)
+        //delete contact
+        private void OnContactsDelete(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this contact?",
-            "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
             DeleteContact();
-        }
-
-        private void OnListKeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete)
-            {
-                DeleteContact();
-            };
         }
 
         //helper delete contact
@@ -122,7 +121,7 @@ namespace ContactManager.UI
             if (item == null)
                 return;
 
-            var form = new NewContactsForm();
+            var form = new NewContactForm();
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;

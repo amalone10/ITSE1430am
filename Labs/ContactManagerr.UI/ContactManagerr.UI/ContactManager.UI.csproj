@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B11003D8-4914-4E8E-AA4B-0EC7BEACA510}</ProjectGuid>
+    <ProjectGuid>{2FC8472F-4BBE-472F-8BA5-E9F2BA613BB8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ContactManager.Memory</RootNamespace>
-    <AssemblyName>ContactManager.Memory</AssemblyName>
+    <RootNamespace>ContactManagerr.UI</RootNamespace>
+    <AssemblyName>ContactManagerr.UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,8 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MemoryContactManager.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewContactForm.Designer.cs">
+      <DependentUpon>NewContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendForm.Designer.cs">
+      <DependentUpon>SendForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewContactForm.resx">
+      <DependentUpon>NewContactForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -57,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SendForm.resx">
+      <DependentUpon>SendForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -72,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactManager\ContactManager.csproj">
-      <Project>{97b2d812-f2cd-483a-8572-39600cef8fa0}</Project>
+      <Project>{fb310083-2907-48c5-b5b2-4e1f24386fb5}</Project>
       <Name>ContactManager</Name>
     </ProjectReference>
   </ItemGroup>

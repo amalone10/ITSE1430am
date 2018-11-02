@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ContactManager.UI.Properties
+namespace ContactManager.Properties
 {
 
 
