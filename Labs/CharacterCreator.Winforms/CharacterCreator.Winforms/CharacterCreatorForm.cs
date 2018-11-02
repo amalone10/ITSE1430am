@@ -12,6 +12,7 @@ namespace CharacterCreator.Winforms
 {
     public partial class CharacterCreatorForm : Form
     {
+
         public CharacterCreatorForm()
         {
             InitializeComponent();
@@ -48,12 +49,14 @@ namespace CharacterCreator.Winforms
             return -1;
         }
 
+        //cancel
         private void OnCancel(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
+        //save
         private void OnSave(object sender, EventArgs e)
         {
             if (!ValidateChildren())

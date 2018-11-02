@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this._txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,9 +50,13 @@
             this._txtAgility = new System.Windows.Forms.TextBox();
             this._txtConstitution = new System.Windows.Forms.TextBox();
             this._txtIntelligence = new System.Windows.Forms.TextBox();
-            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
+            // 
+            // _errors
+            // 
+            this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this._errors.ContainerControl = this;
             // 
             // label1
             // 
@@ -64,6 +69,8 @@
             // 
             // _txtName
             // 
+            this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._txtName.Location = new System.Drawing.Point(73, 10);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(160, 20);
@@ -81,6 +88,8 @@
             // 
             // _comboProfession
             // 
+            this._comboProfession.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._comboProfession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboProfession.FormattingEnabled = true;
             this._comboProfession.Items.AddRange(new object[] {
@@ -105,6 +114,8 @@
             // 
             // _comboRace
             // 
+            this._comboRace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._comboRace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboRace.FormattingEnabled = true;
             this._comboRace.Items.AddRange(new object[] {
@@ -129,6 +140,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(137, 145);
             this.label5.Name = "label5";
@@ -138,6 +150,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(137, 112);
             this.label6.Name = "label6";
@@ -180,13 +193,13 @@
             this._txtDescription.Location = new System.Drawing.Point(73, 211);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(160, 94);
+            this._txtDescription.Size = new System.Drawing.Size(160, 136);
             this._txtDescription.TabIndex = 9;
             // 
             // _btnSave
             // 
             this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSave.Location = new System.Drawing.Point(73, 326);
+            this._btnSave.Location = new System.Drawing.Point(77, 353);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
             this._btnSave.TabIndex = 10;
@@ -198,7 +211,7 @@
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
-            this._btnCancel.Location = new System.Drawing.Point(158, 326);
+            this._btnCancel.Location = new System.Drawing.Point(158, 353);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 11;
@@ -239,6 +252,7 @@
             // 
             // _txtConstitution
             // 
+            this._txtConstitution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._txtConstitution.Location = new System.Drawing.Point(204, 142);
             this._txtConstitution.Name = "_txtConstitution";
             this._txtConstitution.Size = new System.Drawing.Size(29, 20);
@@ -248,6 +262,7 @@
             // 
             // _txtIntelligence
             // 
+            this._txtIntelligence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._txtIntelligence.Location = new System.Drawing.Point(204, 109);
             this._txtIntelligence.Name = "_txtIntelligence";
             this._txtIntelligence.Size = new System.Drawing.Size(29, 20);
@@ -255,17 +270,12 @@
             this._txtIntelligence.Text = "50";
             this._txtIntelligence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntelligence);
             // 
-            // _errors
-            // 
-            this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this._errors.ContainerControl = this;
-            // 
             // CharacterCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(259, 361);
+            this.ClientSize = new System.Drawing.Size(259, 411);
             this.ControlBox = false;
             this.Controls.Add(this._txtIntelligence);
             this.Controls.Add(this._txtConstitution);
@@ -287,7 +297,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(275, 400);
+            this.MaximumSize = new System.Drawing.Size(300, 500);
             this.MinimumSize = new System.Drawing.Size(275, 400);
             this.Name = "CharacterCreatorForm";
             this.ShowIcon = false;
@@ -320,8 +330,8 @@
         private System.Windows.Forms.TextBox _txtAgility;
         private System.Windows.Forms.TextBox _txtConstitution;
         private System.Windows.Forms.TextBox _txtIntelligence;
-        private System.Windows.Forms.ErrorProvider _errors;
         private System.Windows.Forms.ComboBox _comboProfession;
         private System.Windows.Forms.ComboBox _comboRace;
+        private System.Windows.Forms.ErrorProvider _errors;
     }
 }
