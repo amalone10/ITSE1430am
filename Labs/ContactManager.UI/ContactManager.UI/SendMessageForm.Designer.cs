@@ -1,6 +1,6 @@
 ﻿namespace ContactManager.UI
 {
-    partial class SendForm
+    partial class SendMessageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -43,55 +43,47 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Email Address";
+            this.label1.Text = "Email address";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Subject";
             // 
             // _txtEmail
             // 
-            this._txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtEmail.Location = new System.Drawing.Point(13, 26);
+            this._txtEmail.Location = new System.Drawing.Point(12, 34);
             this._txtEmail.Name = "_txtEmail";
-            this._txtEmail.Size = new System.Drawing.Size(346, 20);
+            this._txtEmail.Size = new System.Drawing.Size(250, 20);
             this._txtEmail.TabIndex = 1;
-            this._txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
             // 
             // _txtSubject
             // 
-            this._txtSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtSubject.Location = new System.Drawing.Point(12, 74);
+            this._txtSubject.Location = new System.Drawing.Point(12, 82);
             this._txtSubject.Name = "_txtSubject";
-            this._txtSubject.Size = new System.Drawing.Size(347, 20);
+            this._txtSubject.Size = new System.Drawing.Size(250, 20);
             this._txtSubject.TabIndex = 2;
+            this._txtSubject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
             // 
             // _txtBody
             // 
-            this._txtBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtBody.Location = new System.Drawing.Point(12, 100);
+            this._txtBody.Location = new System.Drawing.Point(12, 108);
             this._txtBody.Multiline = true;
             this._txtBody.Name = "_txtBody";
-            this._txtBody.Size = new System.Drawing.Size(360, 108);
+            this._txtBody.Size = new System.Drawing.Size(260, 178);
             this._txtBody.TabIndex = 3;
             // 
             // _btnSend
             // 
-            this._btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._btnSend.Location = new System.Drawing.Point(15, 249);
+            this._btnSend.Location = new System.Drawing.Point(15, 376);
             this._btnSend.Name = "_btnSend";
             this._btnSend.Size = new System.Drawing.Size(75, 23);
             this._btnSend.TabIndex = 4;
@@ -101,8 +93,7 @@
             // 
             // _btnCancel
             // 
-            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancel.Location = new System.Drawing.Point(297, 249);
+            this._btnCancel.Location = new System.Drawing.Point(197, 376);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 5;
@@ -115,12 +106,11 @@
             this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this._errors.ContainerControl = this;
             // 
-            // SendForm
+            // SendMessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(384, 284);
+            this.ClientSize = new System.Drawing.Size(284, 411);
             this.ControlBox = false;
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSend);
@@ -129,13 +119,13 @@
             this.Controls.Add(this._txtEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(400, 500);
-            this.MinimumSize = new System.Drawing.Size(400, 300);
-            this.Name = "SendForm";
+            this.MaximumSize = new System.Drawing.Size(350, 500);
+            this.MinimumSize = new System.Drawing.Size(250, 400);
+            this.Name = "SendMessageForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Compose Message";
-            this.Load += new System.EventHandler(this.SendForm_Load);
+            this.Load += new System.EventHandler(this.SendMessageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

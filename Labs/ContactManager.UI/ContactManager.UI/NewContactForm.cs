@@ -10,39 +10,35 @@ using System.Windows.Forms;
 
 namespace ContactManager.UI
 {
-    public partial class SendForm : Form
+    public partial class NewContactForm : Form
     {
-        public Contact Contact { get; set; }
-
-        public SendForm()
+        public NewContactForm()
         {
             InitializeComponent();
         }
 
         //load
-        private void SendForm_Load(object sender, EventArgs e)
+        private void NewContactForm_Load(object sender, EventArgs e)
         {
             if (Contact != null)
             {
+                _txtName.Text = Contact.Name;
                 _txtEmail.Text = Contact.Email;
-                _txtSubject.Text = Contact.Subject;
-                _txtBody.Text = Contact.Body;
             }
 
             ValidateChildren();
         }
 
-        //send
-        private void OnSend(object sender, EventArgs e)
+        //save
+        private void OnSave(object sender, EventArgs e)
         {
             if (!ValidateChildren())
                 return;
 
             var contact = new Contact()
             {
+                Name = _txtName.Text,
                 Email = _txtEmail.Text,
-                Subject = _txtSubject.Text,
-                Body = _txtBody.Text,
             };
 
             Contact = contact;
@@ -58,18 +54,20 @@ namespace ContactManager.UI
             Close();
         }
 
-        //validation
-        private void OnValidatingSubject(object sender, CancelEventArgs e)
+        //validating
+        private void OnValidatingName(object sender, CancelEventArgs e)
         {
             var control = sender as TextBox;
 
             if (String.IsNullOrEmpty(control.Text))
             {
-                _errors.SetError(control, "Subject is required");
+                _errors.SetError(control, "Name is required");
                 e.Cancel = true;
             }
             else
                 _errors.SetError(control, "");
         }
+
+        public Contact Contact { get; set; }
     }
 }

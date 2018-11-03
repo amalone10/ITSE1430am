@@ -55,7 +55,6 @@ namespace ContactManager.UI
 
             _database.AddContact(form.Contact);
             RefreshContact();
-            RefreshMessage();
         }
 
         //edit
@@ -64,16 +63,10 @@ namespace ContactManager.UI
             EditContact();
         }
 
-        //contact list click
-        private void OnContactDoubleClick(object sender, EventArgs e)
+        //double click listed character
+        private void ListContactsDoubleClick(object sender, EventArgs e)
         {
             EditContact();
-        }
-
-        //message list click
-        private void OnMessagesDoubleClick(object sender, EventArgs e)
-        {
-            SendMessage();
         }
 
         //send
@@ -82,39 +75,23 @@ namespace ContactManager.UI
             SendMessage();
         }
 
-        //delete contact
+        //double click listed character
+        private void ListMessagesDoubleClick(object sender, EventArgs e)
+        {
+            SendMessage();
+        }
+
+        //delete
         private void OnContactsDelete(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this contact?",
+            if (MessageBox.Show("Are you sure you want to delete this character?",
                 "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
             DeleteContact();
         }
 
-        //helper delete contact
-        private void DeleteContact()
-        {
-            var item = GetSelectedContact();
-            if (item == null)
-                return;
-
-            _database.RemoveContact(item.Name);
-            RefreshContact();
-        }
-
-        //helper delete message
-        private void DeleteMessage()
-        {
-            var item = GetSelectedMessage();
-            if (item == null)
-                return;
-
-            _database.RemoveMessage(item.Body);
-            RefreshMessage();
-        }
-
-        //helper edit 
+        //helpers
         private void EditContact()
         {
             var item = GetSelectedContact();
@@ -130,50 +107,55 @@ namespace ContactManager.UI
             RefreshContact();
         }
 
-        //helper send
         private void SendMessage()
         {
             var item = GetSelectedMessage();
             if (item == null)
                 return;
 
-            var form = new SendForm();
+            var form = new SendMessageForm();
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.SendMessage(item.Body, form.Contact);
+            _database.EditContact(item.Body, form.Contact);
             RefreshMessage();
         }
 
-        //select contact
-        private Contact GetSelectedContact()
+        private void DeleteContact()
         {
-            return _listContacts.SelectedItem as Contact;
+            var item = GetSelectedContact();
+            if (item == null)
+                return;
+
+            _database.RemoveContact(item.Name);
+            RefreshContact();
         }
 
-        //helper refresh contact
         private void RefreshContact()
         {
             var contact = _database.GetAll();
 
             _listContacts.Items.Clear();
-            _listContacts.Items.Add(contact);
+            _listContacts.Items.AddRange(contact);
         }
 
-        //select message
+        private Contact GetSelectedContact()
+        {
+            return _listContacts.SelectedItem as Contact;
+        }
+
+        private void RefreshMessage()
+        {
+            var contact = _database.GetAll();
+
+            _listMessages.Items.Clear();
+            _listMessages.Items.AddRange(contact);
+        }
+
         private Contact GetSelectedMessage()
         {
             return _listMessages.SelectedItem as Contact;
-        }
-
-        //helper refresh message
-        private void RefreshMessage()
-        {
-            var message = _database.GetAll();
-
-            _listMessages.Items.Clear();
-            _listMessages.Items.Add(message);
         }
 
         private ContactData _database = new ContactData();

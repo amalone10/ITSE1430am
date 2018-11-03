@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ContactManager
 {
@@ -19,25 +19,25 @@ namespace ContactManager
             _items.AddRange(contact);
         }
 
-        //default contacts
+        //default characters
         private static Contact[] GetSeedContact(bool seed)
         {
             if (!seed)
                 return new Contact[0];
 
-            return new[] {
+            return new Contact[] {
                 new Contact()
                 {
                     Name = "John Doe",
                     Email = "john.doe@my.tccd.edu",
-                    Subject = "Sup bruh!",
+                    Subject = "Sup Bruh!",
                     Body = "",
                 },
                 new Contact()
                 {
                     Name = "Jane Doe",
                     Email = "jane.doe@my.tccd.edu",
-                    Subject = "Free Stuff!!!",
+                    Subject = "Free Stuff:)",
                     Body = "",
                 },
             };
@@ -82,13 +82,6 @@ namespace ContactManager
                 _items.Remove(contact);
         }
 
-        public void RemoveMessage(string name)
-        {
-            var contact = FindContact(name);
-            if (contact != null)
-                _items.Remove(contact);
-        }
-
         public void EditContact(string name, Contact contact)
         {
             RemoveContact(name);
@@ -96,14 +89,7 @@ namespace ContactManager
             AddContact(contact);
         }
 
-        public void SendMessage(string name, Contact contact)
-        {
-            RemoveContact(name);
-
-            AddContact(contact);
-        }
-
-        //list of contacts
+        //list of characters
         private List<Contact> _items = new List<Contact>();
     }
 }
