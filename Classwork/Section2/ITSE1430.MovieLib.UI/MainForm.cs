@@ -1,4 +1,5 @@
 ﻿using ITSE1430.MovieLib.Memory;
+using ITSE1430.MovieLib.Sql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,6 +152,6 @@ namespace ITSE1430.MovieLib.UI
             return _listMovies.SelectedItem as Movie;
         }
 
-        private IMovieDatabase _database = new MemoryMovieDatabase();
+        private IMovieDatabase _database = new SqlMovieDatabase();
     }
 }
