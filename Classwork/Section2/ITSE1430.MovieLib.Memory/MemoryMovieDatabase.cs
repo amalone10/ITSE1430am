@@ -30,7 +30,10 @@ namespace ITSE1430.MovieLib.Memory
                    select m).FirstOrDefault();
         }
 
-        protected override void AddCore(Movie movie) => _items.Add(movie);
+        protected override void AddCore(Movie movie)
+        {
+            _items.Add(movie);
+        }
 
         protected override void RemoveCore ( string name )
         {

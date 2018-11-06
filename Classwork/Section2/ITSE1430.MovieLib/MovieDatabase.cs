@@ -18,8 +18,14 @@ namespace ITSE1430.MovieLib
             if(movie == null)
                 throw new ArgumentNullException(nameof(movie));
                 ObjectValidator.Validate(movie);
-
-            AddCore(movie);
+            try
+            {
+                AddCore(movie);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Add Failed", e);
+            };
         }
 
         public void Remove( string name )
