@@ -3,6 +3,7 @@ using ITSE1430.MovieLib.Sql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace ITSE1430.MovieLib.UI
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            var connString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            _database = new SqlMovieDatabase(connString);
 
             _listMovies.DisplayMember = "Name";
             RefreshMovies();
@@ -152,6 +156,6 @@ namespace ITSE1430.MovieLib.UI
             return _listMovies.SelectedItem as Movie;
         }
 
-        private IMovieDatabase _database = new SqlMovieDatabase();
+        private IMovieDatabase _database; //= new SqlMovieDatabase();
     }
 }
