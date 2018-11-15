@@ -17,7 +17,7 @@ namespace ITSE1430.MovieLib.Memory
                     Description = item.Description,
                     ReleaseYear = item.ReleaseYear,
                     RunLength = item.RunLength,
-                    isOwned = item.isOwned,
+                    IsOwned = item.IsOwned,
                 };
         }
 

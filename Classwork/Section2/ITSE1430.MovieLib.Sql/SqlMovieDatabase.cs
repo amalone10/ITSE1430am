@@ -31,7 +31,7 @@ namespace ITSE1430.MovieLib.Sql
 
                 cmd.Parameters.AddWithValue("@title", movie.Name);
                 cmd.Parameters.AddWithValue("@length", movie.RunLength);
-                cmd.Parameters.AddWithValue("@isOwned", movie.isOwned);
+                cmd.Parameters.AddWithValue("@isOwned", movie.IsOwned);
                 cmd.Parameters.AddWithValue("@description", movie.Description);
 
                 conn.Open();
@@ -52,7 +52,7 @@ namespace ITSE1430.MovieLib.Sql
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@title", newMovie.Name);
                 cmd.Parameters.AddWithValue("@length", newMovie.RunLength);
-                cmd.Parameters.AddWithValue("@isOwned", newMovie.isOwned);
+                cmd.Parameters.AddWithValue("@isOwned", newMovie.IsOwned);
                 cmd.Parameters.AddWithValue("@description", newMovie.Description);
 
                 conn.Open();
@@ -90,7 +90,7 @@ namespace ITSE1430.MovieLib.Sql
                             Description = Convert.ToString(reader.GetValue(2)),
                             ReleaseYear = 1900,
                             RunLength = reader.GetFieldValue<int>(3),
-                            isOwned = reader.GetBoolean(4),
+                            IsOwned = reader.GetBoolean(4),
                         };
                     };
                 };
@@ -129,7 +129,7 @@ namespace ITSE1430.MovieLib.Sql
                     Description = Convert.ToString(row[2]),
                     ReleaseYear = 1900,
                     RunLength = row.Field<int>(3),
-                    isOwned = Convert.ToBoolean(row[4]),
+                    IsOwned = Convert.ToBoolean(row[4]),
                 };
                 movies.Add(movie);
             };
