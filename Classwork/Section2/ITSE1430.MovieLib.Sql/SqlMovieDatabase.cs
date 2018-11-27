@@ -67,7 +67,7 @@ namespace ITSE1430.MovieLib.Sql
             return sql?.Id ?? 0;
         }
 
-        protected override Movie FindByName(string name)
+        protected override Movie FindByName(string name)        //data reader
         {
             using (var conn = CreateConnection())
             {
@@ -100,7 +100,7 @@ namespace ITSE1430.MovieLib.Sql
             return null;
         }
 
-        protected override IEnumerable<Movie> GetAllCore()
+        protected override IEnumerable<Movie> GetAllCore()      //data set
         {
             var ds = new DataSet();
 
