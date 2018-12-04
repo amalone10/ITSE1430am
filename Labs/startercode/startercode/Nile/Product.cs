@@ -11,10 +11,12 @@ namespace Nile
     public class Product : IValidatableObject
     {
         /// <summary>Gets or sets the unique identifier.</summary>
+        [Range(Int32.MinValue, 0, ErrorMessage = "Id must be <= 0.")]
         public int Id { get; set; }
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>Never returns null.</value>
+        [Required(AllowEmptyStrings = false)]
         public string Name
         {
             get { return _name ?? ""; }
@@ -29,6 +31,7 @@ namespace Nile
         }
 
         /// <summary>Gets or sets the price.</summary>
+        [Range(Int64.MinValue, 0, ErrorMessage = "Price must be <= 0.")]
         public decimal Price { get; set; } = 0;      
 
         /// <summary>Determines if discontinued.</summary>
@@ -47,14 +50,7 @@ namespace Nile
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (Id > 0)
-                yield return new ValidationResult("Id must be <= 0", new[] { nameof(Id) });
-
-            if (String.IsNullOrEmpty(Name))
-                yield return new ValidationResult("Name is required. ", new[] { nameof(Name) });
-
-            if (Price > 0)
-                yield return new ValidationResult("Price must be <= 0", new[] { nameof(Price) });
+            yield return null;
         }
     }
 }

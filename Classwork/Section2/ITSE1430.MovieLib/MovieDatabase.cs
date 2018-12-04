@@ -56,11 +56,11 @@ namespace ITSE1430.MovieLib
 
         protected abstract IEnumerable<Movie> GetAllCore();
 
+        protected abstract Movie FindByName(string name);
+
         protected abstract void AddCore(Movie movie);
 
         protected abstract void RemoveCore(string name);
-
-        protected abstract Movie FindByName(string name);
 
         protected abstract void EditCore(Movie oldMovie, Movie newMovie);
     }

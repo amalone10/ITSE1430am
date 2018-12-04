@@ -1,7 +1,9 @@
 /*
  * ITSE 1430
  */
+using Nile.Stores.Sql;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace Nile.Windows
@@ -19,6 +21,9 @@ namespace Nile.Windows
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
+
+            var connString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            _database = new SqlProductDatabase(connString);
 
             _gridProducts.AutoGenerateColumns = false;
 
@@ -44,9 +49,17 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Add(child.Product);
+            try
+            {
+                //Save product
+                _database.Add(child.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             UpdateList();
         }
 
@@ -110,9 +123,16 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Handle errors
-            //Delete product
-            _database.Remove(product.Id);
+            try
+            {
+                //Delete product
+                _database.Remove(product.Id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             UpdateList();
         }
 
@@ -123,9 +143,17 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Update(child.Product);
+            try
+            {
+                //Save product
+                _database.Update(child.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             UpdateList();
         }
 
@@ -144,7 +172,7 @@ namespace Nile.Windows
             _bsProducts.DataSource = _database.GetAll();
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
         #endregion
     }
 }
