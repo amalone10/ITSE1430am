@@ -129,7 +129,7 @@ namespace ITSE1430.MovieLib.UI
 
             try
             {
-                _database.EditCore(item.Name, form.Movie);
+                _database.Edit(item.Name, form.Movie);
             }
             catch (Exception ex)
             {

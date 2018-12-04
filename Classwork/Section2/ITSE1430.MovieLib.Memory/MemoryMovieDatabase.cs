@@ -23,8 +23,6 @@ namespace ITSE1430.MovieLib.Memory
 
         protected override Movie FindByName (string name)
         {
-            var pairs = new Dictionary<string, Movie>();
-
             return (from m in _items
                    where String.Compare(name, m.Name, true) == 0
                    select m).FirstOrDefault();

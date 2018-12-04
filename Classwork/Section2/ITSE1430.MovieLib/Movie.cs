@@ -22,6 +22,8 @@ namespace ITSE1430.MovieLib
         [Range(0, Int32.MaxValue, ErrorMessage = "Run length must be >= 0.")]
         public int RunLength { get; set; }
 
+        public int Id { get; set; }
+
         public bool IsColor => ReleaseYear > 1940;      //read only property
 
         public bool IsOwned { get; set; }

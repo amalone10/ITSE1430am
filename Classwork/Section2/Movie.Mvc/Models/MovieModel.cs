@@ -15,6 +15,7 @@ namespace Movie.Mvc.Models
         {
             if (item != null)
             {
+                Id = item.Id;
                 Name = item.Name;
                 Description = item.Description;
                 ReleaseYear = item.ReleaseYear;
@@ -50,5 +51,7 @@ namespace Movie.Mvc.Models
 
         [Display(Name = "Pwned")]
         public bool IsOwned { get; set; }
+
+        public int Id { get; set; }
     }
 }

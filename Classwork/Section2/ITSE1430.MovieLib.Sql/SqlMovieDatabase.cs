@@ -60,13 +60,6 @@ namespace ITSE1430.MovieLib.Sql
             };
         }
 
-        private object GetMovieId(Movie movie)
-        {
-            var sql = movie as SqlMovie;
-
-            return sql?.Id ?? 0;
-        }
-
         protected override Movie FindByName(string name)        //data reader
         {
             using (var conn = CreateConnection())
@@ -94,7 +87,6 @@ namespace ITSE1430.MovieLib.Sql
                         };
                     };
                 };
-
             };
 
             return null;
@@ -158,5 +150,12 @@ namespace ITSE1430.MovieLib.Sql
         }
 
         private SqlConnection CreateConnection() => new SqlConnection(_connectionString);
+
+        private object GetMovieId(Movie movie)
+        {
+            var sql = movie as SqlMovie;
+
+            return sql?.Id ?? 0;
+        }
     }
 }

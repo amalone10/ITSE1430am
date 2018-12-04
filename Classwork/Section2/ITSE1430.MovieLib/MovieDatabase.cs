@@ -8,10 +8,7 @@ namespace ITSE1430.MovieLib
 {
     public abstract class MovieDatabase : IMovieDatabase
     {
-        public IEnumerable<Movie> GetAll()
-        {
-            return GetAllCore();
-        }
+        public IEnumerable<Movie> GetAll() => GetAllCore();
 
         public void Add(Movie movie)
         {
@@ -30,14 +27,15 @@ namespace ITSE1430.MovieLib
 
         public void Remove( string name )
         {
-            //todo validate
-            if (string.IsNullOrEmpty(name))
-                return;
+            if (name == null)
+                throw new ArgumentNullException(nameof(name));
+            else if (name == "")
+                throw new ArgumentException("Name cannot be empty.", nameof(name));
 
             RemoveCore(name);
         }
 
-        public void EditCore ( string name, Movie movie )
+        public void Edit ( string name, Movie movie )
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
@@ -65,7 +63,5 @@ namespace ITSE1430.MovieLib
         protected abstract Movie FindByName(string name);
 
         protected abstract void EditCore(Movie oldMovie, Movie newMovie);
-
-        private List<Movie> _items = new List<Movie>();
     }
 }
