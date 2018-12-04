@@ -17,20 +17,21 @@ namespace ITSE1430.MovieLib.Memory
                     Description = item.Description,
                     ReleaseYear = item.ReleaseYear,
                     RunLength = item.RunLength,
-                    isOwned = item.isOwned,
+                    IsOwned = item.IsOwned,
                 };
         }
 
         protected override Movie FindByName (string name)
         {
-            var pairs = new Dictionary<string, Movie>();
-
             return (from m in _items
                    where String.Compare(name, m.Name, true) == 0
                    select m).FirstOrDefault();
         }
 
-        protected override void AddCore(Movie movie) => _items.Add(movie);
+        protected override void AddCore(Movie movie)
+        {
+            _items.Add(movie);
+        }
 
         protected override void RemoveCore ( string name )
         {

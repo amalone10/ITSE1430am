@@ -1,7 +1,9 @@
 ﻿using ITSE1430.MovieLib.Memory;
+using ITSE1430.MovieLib.Sql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -29,15 +31,14 @@ namespace ITSE1430.MovieLib.UI
         {
             base.OnLoad(e);
 
-            _database.Add(new Movie());
-
-            //SeedDatabase.Seed(_database);
-            _database.Seed();
+            var connString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            _database = new SqlMovieDatabase(connString);
 
             _listMovies.DisplayMember = "Name";
             RefreshMovies();
         }
 
+        //event handler
         private void OnFileExit(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?",
@@ -60,9 +61,81 @@ namespace ITSE1430.MovieLib.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            //MessageBox.Show("Adding movie");
-            _database.Add(form.Movie);
-            //Movie.Name = "";
+            try
+            {
+                _database.Add(form.Movie);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
+        }
+
+        private void OnMovieDelete(object sender, EventArgs e)
+        {
+            DeleteMovie();
+        }
+
+        private void OnMovieEdit(object sender, EventArgs e)
+        {
+            EditMovie();
+
+        }
+
+        private void OnMovieDoubleClick(object sender, EventArgs e)
+        {
+            EditMovie();
+        }
+
+        private void OnListKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                DeleteMovie();
+            };
+        }
+
+        //private members
+        private void DeleteMovie()
+        {
+            var item = GetSelectedMovie();
+            if (item == null)
+                return;
+
+            try
+            {
+                _database.Remove(item.Name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
+
+            RefreshMovies();
+        }
+
+        private void EditMovie()
+        {
+            var item = GetSelectedMovie();
+            if (item == null)
+                return;
+
+            var form = new MovieForm();
+            form.Movie = item;
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            try
+            {
+                _database.Edit(item.Name, form.Movie);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
 
             RefreshMovies();
         }
@@ -83,54 +156,6 @@ namespace ITSE1430.MovieLib.UI
             return _listMovies.SelectedItem as Movie;
         }
 
-        private void DeleteMovie()
-        {
-            var item = GetSelectedMovie();
-            if (item == null)
-                return;
-
-            _database.Remove(item.Name);
-            RefreshMovies();
-        }
-
-        private void EditMovie()
-        {
-            var item = GetSelectedMovie();
-            if (item == null)
-                return;
-
-            var form = new MovieForm();
-            form.Movie = item;
-            if (form.ShowDialog(this) == DialogResult.Cancel)
-                return;
-
-            _database.EditCore(item.Name, form.Movie);
-            RefreshMovies();
-        }
-
-        private void OnMovieDelete(object sender, EventArgs e)
-        {
-            DeleteMovie();
-        }
-
-        private void OnMovieEdit(object sender, EventArgs e)
-        {
-            EditMovie();
-        }
-
-        private void OnMovieDoubleClick(object sender, EventArgs e)
-        {
-            EditMovie();
-        }
-
-        private void OnListKeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete)
-            {
-                DeleteMovie();
-            };
-        }
-
-        private IMovieDatabase _database = new MemoryMovieDatabase();
+        private IMovieDatabase _database; //= new SqlMovieDatabase();
     }
 }

@@ -37,7 +37,7 @@ namespace ITSE1430.MovieLib.UI
                 Description = _txtDescription.Text,
                 ReleaseYear = GetInt32(_txtReleaseYear),
                 RunLength = GetInt32(_txtRunLength),
-                isOwned = _chkOwned.Checked,
+                IsOwned = _chkOwned.Checked,
             };
 
             var results = ObjectValidator.TryValidate(movie);
@@ -70,7 +70,7 @@ namespace ITSE1430.MovieLib.UI
                 _txtDescription.Text = Movie.Description;
                 _txtReleaseYear.Text = Movie.ReleaseYear.ToString();
                 _txtRunLength.Text = Movie.RunLength.ToString();
-                _chkOwned.Checked = Movie.isOwned;
+                _chkOwned.Checked = Movie.IsOwned;
             }
 
             ValidateChildren();
